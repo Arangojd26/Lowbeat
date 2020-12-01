@@ -1,0 +1,20 @@
+/* Estilos del botón atras */
+.o-back {
+
+    position: absolute;
+}
+.o-icon-back {
+
+    margin-top: 2rem;
+    margin-left: 2.5rem;
+    color: #B4B4B4;
+    cursor: pointer;
+}
+.o-text-back {
+
+    margin-top: 1.85rem;
+    margin-left: 0.5rem;
+    font-size: 15px;
+    color: #B4B4B4;
+    cursor: pointer;
+}

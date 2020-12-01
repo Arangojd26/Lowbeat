@@ -1,0 +1,20 @@
+/* Estilos del color del fondo */
+.o-fondo {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background: #F5F7FC;
+    z-index: -1;
+}
+
+/* Estilos del contenedor de los videos y audios */
+.o-container-slider-list {
+
+    /* background-color: burlywood; */
+    width: 100%;
+    height: 100%;
+    padding: 0rem 6rem 0rem 6rem;
+}

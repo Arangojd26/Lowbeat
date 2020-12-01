@@ -1,0 +1,9 @@
+
+/* Estilos del texto del footer */
+.o-text-derechos-reservados {
+
+    position: absolute;
+    bottom: 1.8rem;
+    font-size: 12px;
+    color: #0E195A;
+}

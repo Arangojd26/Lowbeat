@@ -1,0 +1,114 @@
+/* Estilos del contenedor del navbar */
+.o-navbar-container {
+    
+    background-color: #000000bb;
+    display: flex;
+    width: 100%;
+    z-index: 3;
+}
+.pointer {
+
+    cursor: pointer;
+}
+
+/* Estilos del logo Lowbeat */
+.o-logo-btl {
+
+    width: 87px;
+}
+/* Estilos del contenedor salir */
+.o-container-exit {
+
+    width: 100%;
+    margin: 2.2rem;
+    margin-top: 2.3rem;
+    display: flex;
+    justify-content: flex-end;
+}
+/* Estilos del texto salir */
+.o-title-exit {
+
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 0.2rem;
+    margin-right: 0.8rem; 
+}
+/* Estilos del hover salir */
+.o-title-exit-red {
+
+    color: #f53939;
+    font-size: 14px;
+    margin-top: 0.2rem;
+    margin-right: 0.8rem; 
+}
+/* Estilos del icono salir */
+.o-icon-exit {
+    
+    width: 28px;
+    height: 28px;
+    background-image: url(../../../assets/icons/exit.svg);
+}
+/* Estilos del hover en el icono salir */
+.o-icon-exit-red {
+    width: 28px;
+    height: 28px;
+    background-image: url(../../../assets/icons/exitRed.svg);
+}
+/* Estilos del contenedor del menu */
+.o-container-menu {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+    width: 2.5rem;
+    height: 1.5rem;
+    margin-top: 2.5rem;
+    margin-left: 2.5rem;
+    cursor: pointer;
+}
+/* Estilos de la línea del menu */
+.o-line-menu {
+
+    width: 35px;
+    height: 3px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border-radius: 20%;
+}
+/* Estilos del cotenedor mis listas */
+.o-container-btn-listas {
+
+    position: absolute;
+    right: 0;
+    margin-right: 12rem;
+    margin-top: 1.8rem;
+    /* width: 100%; */
+    /* margin: 2.2rem; */
+}
+/* Estilos del botón mis listas */
+.o-btn-mis-listas {
+
+    background-color: transparent;
+    color: #ffffff;
+    border-radius: 6px ;
+    font-size: 14px ;
+    padding-top: 10px ;
+    padding-bottom: 10px ;
+    padding-left: 22px ;
+    padding-right: 22px ;
+    border: 0;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
+    outline: none !important;
+}
+.o-btn-mis-listas {
+    
+    outline:0;
+    outline: none;
+}
+.o-btn-mis-listas:hover {
+
+    background-color: #AA8E73;
+    color: #ffffff;
+}

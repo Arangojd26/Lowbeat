@@ -1,0 +1,17 @@
+/* Estilos del fondo del home */
+.o-fondo-home {
+
+    background-image: url("../../../assets/images/fondoHome.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* Estilos del contenedor de las opciones del menu */
+.o-container-cards-menu {
+
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
