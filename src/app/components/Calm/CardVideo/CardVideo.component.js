@@ -67,7 +67,7 @@ const CardVideo = (props) => {
                     <ModalVideo url={urls} buttonLabel={'Abrir'} />
                     {
                         props.cardList ? (
-                            <button className="btn btn-info o-btn-video ml-3" onClick={() => deleteVideo()}>Quitar</button>
+                            <button className="btn btn-info o-btn-delete ml-3" onClick={() => deleteVideo()}>Quitar</button>
                         ) : <button className="btn btn-info o-btn-video ml-3" onClick={() => addVideo()}>Agregar</button>
                     }
                </div>

@@ -24,12 +24,40 @@
     outline: none !important;
     margin-top: -1.2rem;
 }
+
 .o-btn-video:focus {
     
     outline:0;
     outline: none;
 }
 .o-btn-video:hover {
+
+    background-color: #AA8E73;
+    color: #ffffff;
+}
+.o-btn-delete {
+
+    background-color: transparent;
+    color: #AA8E73;
+    border-radius: 6px ;
+    font-family: 'Avenir Next Rounded Pro Medium';
+    font-size: 14px ;
+    padding-top: 10px ;
+    padding-bottom: 10px ;
+    padding-left: 22px ;
+    padding-right: 22px ;
+    border: 0;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
+    outline: none !important;
+    margin-top: -1rem;
+}
+.o-btn-delete:focus {
+    
+    outline:0;
+    outline: none;
+}
+.o-btn-delete:hover {
 
     background-color: #AA8E73;
     color: #ffffff;

@@ -3,7 +3,9 @@ import { db } from '../../../firebase'
 // constantes
 const dataInicial = {
     urlVideos: [],
-    urlAudios: []
+    urlAudios: [],
+    urlVideos2: [],
+    urlAudios2: []
 }
 
 // types
@@ -14,9 +16,9 @@ const GET_AUDIOS_SUCCESS = 'GET_AUDIOS_SUCCESS'
 export default function multimediaReducer(state = dataInicial, action){
     switch (action.type) {
         case GET_VIDEOS_SUCCESS:
-            return { ...state, urlVideos: action.payload.urlVideos }
+            return { ...state, urlVideos: action.payload.urlVideos, urlVideos2: action.payload.urlVideos2 }
         case GET_AUDIOS_SUCCESS:
-            return { ...state, urlAudios: action.payload.urlAudios }
+            return { ...state, urlAudios: action.payload.urlAudios, urlAudios2: action.payload.urlAudios2 }
         default:
             return state
     }
@@ -25,16 +27,36 @@ export default function multimediaReducer(state = dataInicial, action){
 // actions
 export const obtenerVideosAccion = (dataCollection) => async (dispatch) => {
     try {
-        const datos = await db.collection(dataCollection).limit(4).get()
+
+        const datos = await db.collection(dataCollection)
+            .limit(4)
+            .orderBy('uid')
+            .get()
+
         const arrayData = datos.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }))
-        // console.log(arrayData)
+
+        const datosNext = await db.collection(dataCollection)
+            .limit(4)
+            .orderBy('uid')
+            .startAfter(datos.docs[datos.docs.length - 1])
+            .get()
+
+        const arrayDataNext = datosNext.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }))
+
+        console.log("arrayDataNext: ")
+        console.log(arrayDataNext)
+
         dispatch({
             type: GET_VIDEOS_SUCCESS,
             payload: {
-                urlVideos: arrayData
+                urlVideos: arrayData,
+                urlVideos2: arrayDataNext
             } 
         })
     } catch (error) {
@@ -44,8 +66,23 @@ export const obtenerVideosAccion = (dataCollection) => async (dispatch) => {
 
 export const obtenerAudiosAccion = (dataCollection) => async (dispatch) => {
     try {
-        const datos = await db.collection(dataCollection).get()
+        const datos = await db.collection(dataCollection)
+            .limit(4)
+            .orderBy('uid')
+            .get()
+
         const arrayData = datos.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }))
+
+        const datosNext = await db.collection(dataCollection)
+            .limit(4)
+            .orderBy('uid')
+            .startAfter(datos.docs[datos.docs.length - 1])
+            .get()
+
+        const arrayDataNext = datosNext.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }))
@@ -54,7 +91,8 @@ export const obtenerAudiosAccion = (dataCollection) => async (dispatch) => {
         dispatch({
             type: GET_AUDIOS_SUCCESS,
             payload: {
-                urlAudios: arrayData
+                urlAudios: arrayData,
+                urlAudios2: arrayDataNext
             } 
         })
     } catch (error) {

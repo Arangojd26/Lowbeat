@@ -72,7 +72,7 @@ export const agregarVideoAccion = (urlVideo, category) => async (dispatch) => {
                     typeAlert: 'exist'
                 } 
             })
-        }, 5000);
+        }, 2500);
     } else {
 
         dispatch({
@@ -90,7 +90,7 @@ export const agregarVideoAccion = (urlVideo, category) => async (dispatch) => {
                     typeAlert: 'add'
                 } 
             })
-        }, 5000);
+        }, 2500);
 
         try {
             const infoUser = JSON.parse(localStorage.getItem('usuario'))
@@ -142,7 +142,7 @@ export const agregarAudioAccion = (urlAudio, category) => async (dispatch) => {
                     typeAlert: 'exist'
                 } 
             })
-        }, 5000);
+        }, 2500);
     } else {
 
         dispatch({
@@ -160,11 +160,10 @@ export const agregarAudioAccion = (urlAudio, category) => async (dispatch) => {
                     typeAlert: 'add'
                 } 
             })
-        }, 5000);
+        }, 2500);
 
         try {
             
-    
             await db.collection('lista-usuario-audios').add({
                 email: infoUser.email,
                 displayName: infoUser.displayName,
@@ -257,7 +256,7 @@ export const eliminarVideoListaAccion = (id) => async (dispatch, getState) => {
                 typeAlert: 'delete'
             } 
         })
-    }, 5000);
+    }, 2500);
 
     try {
         
@@ -299,7 +298,7 @@ export const eliminarAudioListaAccion = (id) => async (dispatch, getState) => {
                 typeAlert: 'delete'
             } 
         })
-    }, 5000);
+    }, 2500);
 
     try {
         

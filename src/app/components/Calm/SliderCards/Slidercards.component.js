@@ -10,9 +10,12 @@ const Slidercards = (props) => {
     const dispatch = useDispatch()
 
     const videosGeneral = useSelector(store => store.multimedia.urlVideos)
+    const videosGeneral2 = useSelector(store => store.multimedia.urlVideos2)
     const audiosGeneral = useSelector(store => store.multimedia.urlAudios)
+    const audiosGeneral2 = useSelector(store => store.multimedia.urlAudios2)
 
     const videosMyList = useSelector(store => store.myList.listVideos)
+    
     const audiosMyList = useSelector(store => store.myList.listAudios)
 
     React.useEffect(() => {
@@ -63,7 +66,7 @@ const Slidercards = (props) => {
                                     category={props.category} 
                                     cardList={props.cardList} 
                                     typeCard={props.typeCard} 
-                                    items={props.cardList ? videosMyList : videosGeneral} 
+                                    items={props.cardList ? videosMyList : videosGeneral2} 
                                     fallback={"Cargando..."} 
                                 />
                             </div>
@@ -85,7 +88,7 @@ const Slidercards = (props) => {
                                     category={props.category} 
                                     cardList={props.cardList} 
                                     typeCard={props.typeCard} 
-                                    items={props.cardList ? audiosMyList : audiosGeneral} 
+                                    items={props.cardList ? audiosMyList : audiosGeneral2} 
                                     fallback={"Cargando..."} 
                                 />
                             </div>

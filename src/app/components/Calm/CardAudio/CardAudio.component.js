@@ -54,8 +54,8 @@ const CardAudio = (props) => {
                     <ModalVideo url={props.url} buttonLabel={'Abrir'} />
                     {
                         props.cardList ? (
-                            <button className="btn btn-info o-btn-video ml-3" onClick={() => deleteAudio()}>Quitar</button>
-                        ) : <button className="btn btn-info o-btn-video ml-3" onClick={() => addAudio()}>Agregar</button>
+                            <button className="btn btn-info o-btn-delete ml-3" onClick={() => deleteAudio()}>Quitar</button>
+                        ) : <button className="btn btn-info o-btn-delete ml-3" onClick={() => addAudio()}>Agregar</button>
                     }
                </div>
             </div>
