@@ -3,7 +3,7 @@ import { db } from '../../../firebase'
 // constantes
 const dataInicial = {
     urlVideos: [],
-    urlAudios: [],
+    urlAudios: []
 }
 
 // types

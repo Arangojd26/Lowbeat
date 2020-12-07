@@ -144,11 +144,11 @@ export const registrarUsuarioNormalAccion = (nombre, email, pass) => async(dispa
                             uid: userFB.user.uid,
                             displayName: userFB.user.displayName
                         });
-                        // localStorage.setItem('usuario', JSON.stringify({
-                        //     uid: userFB.user.uid,
-                        //     email: userFB.user.email,
-                        //     displayName: userFB.user.displayName
-                        // }))
+                        localStorage.setItem('usuario', JSON.stringify({
+                            uid: userFB.user.uid,
+                            email: userFB.user.email,
+                            displayName: userFB.user.displayName
+                        }))
                     }).catch(error => { console.log(error) })
                 }
             }

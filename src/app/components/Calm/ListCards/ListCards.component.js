@@ -25,18 +25,17 @@ const ListCards = (props) => {
         <>
             {
                 props.items.map(item => (
-                    <div key={item.uid} className="col-md-3" style={{ float: 'left' }}>
+                    <div key={item.url} className="col-md-3" style={{ float: 'left' }}>
                         {
                             props.typeCard === 'video' ? (
-                                <CardVideo category={props.category} cardList={props.cardList} url={item.url} />
+                                <CardVideo category={props.category} cardList={props.cardList} url={item.url} id={item.id} />
                             ) : (
-                                <CardAudio category={props.category} cardList={props.cardList} url={item.url} />
+                                <CardAudio category={props.category} cardList={props.cardList} url={item.url} id={item.id} />
                             )
                         }
                     </div>
                 ))
             }
-            
         </>
     )
 }

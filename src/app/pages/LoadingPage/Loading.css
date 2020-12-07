@@ -1,0 +1,13 @@
+.o-container-logo {
+
+    /* background-color: thistle; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.o-logo-loading {
+
+    width: 9rem;
+}

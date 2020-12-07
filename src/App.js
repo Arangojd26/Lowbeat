@@ -10,6 +10,7 @@ import Descanso from "./app/pages/DescansoPage/Descanso.page";
 import MyList from "./app/pages/ListsPage/MyList.page";
 
 import {auth} from './firebase'
+import Loading from "./app/pages/LoadingPage/Loading.page";
 
 
 function App() {
@@ -55,7 +56,9 @@ function App() {
         <PrivateRoute component={MyList} path="/listas" exact />
       </Switch>
     </Router>
-  ) : (<div>Cargando...</div>);
+  ) : (
+    <Loading />
+  );
 }
 
 export default App;

@@ -175,6 +175,19 @@ const CardLogin = (props) => {
             setErrorUser(null)
             console.log("Correcto...");
             setIngresar(true)
+            puedeIngresar(e)
+        }
+    }
+
+    const puedeIngresar = (e) => {
+
+        e.preventDefault();
+        if (esRegistro && ingresar) {
+            registrar();
+            setIngresar(false)
+            
+        } else if(!esRegistro) {
+            login();
         }
     }
     
@@ -228,17 +241,7 @@ const CardLogin = (props) => {
     }, [nombre, email, pass, dispatch]);
     
     
-    const puedeIngresar = (e) => {
-
-        e.preventDefault();
-        if (esRegistro && ingresar) {
-            registrar();
-            setIngresar(false)
-            
-        } else if(!esRegistro) {
-            login();
-        }
-    }
+   
     return (
         <>
             <ModalLoginComponent open={modal} />
@@ -247,7 +250,7 @@ const CardLogin = (props) => {
 
                     <TitleLogin esRegistro={esRegistro} />
                     <div className="container-form">
-                        <form onSubmit={puedeIngresar}>
+                        <form onSubmit={procesarDatos}>
                             <CheckLogin esCheck={esCheck} es8Caracteres={es8Caracteres} esCaracterEspecial={esCaracterEspecial} esMayuscula={esMayuscula} esNumero={esNumero} />
                             {
                                 esRegistro ? (

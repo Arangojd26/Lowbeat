@@ -8,6 +8,7 @@ import ListSalud from '../../components/MyList/SaludList/ListSalud.component'
 import BackButtonComponent from '../../shared/BackButton/BackButton.component'
 import NavbarComponent from '../../shared/Navbar/Navbar.component'
 import SidebarComponent from '../../shared/Sidebar/Sidebar.component'
+import SweetAlert from '../../shared/SweetAlert/SweetAlert.component'
 import './MyList.css'
 
 const MyList = () => {
@@ -17,13 +18,12 @@ const MyList = () => {
     
     const [showList, setShowList] = React.useState('Calma')
     
-    
     return (
         <>
             <NavbarComponent setOpacity={setOpacity} setHideBar={setHideBar} />
             <SidebarComponent opacity={opacity} setOpacity={setOpacity} hideSidebar={hideSidebar} setHideBar={setHideBar}/>
             <BackButtonComponent />
-            {/* <div className="o-fondo" /> */}
+            <SweetAlert />
             <div className="container-fluid">
                 <Menu setShowList={setShowList} />
                 {

@@ -4,7 +4,7 @@ import './CardVideo.css'
 import YouTube from 'react-youtube';
 import ModalVideo from '../../../shared/ModalVideo/ModalVideo.component'
 import { useDispatch } from 'react-redux'
-import { agregarVideoAccion } from '../../../Redux/MyList/myListDucks'
+import { agregarVideoAccion, eliminarVideoListaAccion } from '../../../Redux/MyList/myListDucks'
 
 const CardVideo = (props) => {
 
@@ -41,6 +41,12 @@ const CardVideo = (props) => {
 
         dispatch(agregarVideoAccion(urls, props.category))
     }
+
+    const deleteVideo = () => {
+
+        // console.log(props.id)
+        dispatch(eliminarVideoListaAccion(props.id))
+    }
     
     return (
         <div className="card o-card mb-2">
@@ -61,7 +67,7 @@ const CardVideo = (props) => {
                     <ModalVideo url={urls} buttonLabel={'Abrir'} />
                     {
                         props.cardList ? (
-                            <button className="btn btn-info o-btn-video ml-3">Quitar</button>
+                            <button className="btn btn-info o-btn-video ml-3" onClick={() => deleteVideo()}>Quitar</button>
                         ) : <button className="btn btn-info o-btn-video ml-3" onClick={() => addVideo()}>Agregar</button>
                     }
                </div>

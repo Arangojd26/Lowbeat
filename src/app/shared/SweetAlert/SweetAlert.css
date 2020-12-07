@@ -1,0 +1,51 @@
+.o-sweet-alert-add {
+
+    position: fixed;
+    right: 0;
+    opacity: 0.9;
+    width: 44rem;
+    background: #00be95;
+    top: 13.5vh;
+    height: 64px;
+    border-radius: 2.9px;
+    transition: margin-right 1.5s ease-in-out, opacity 1s;
+    z-index: 1;
+}
+.o-sweet-alert-exist {
+
+    position: fixed;
+    right: 0;
+    opacity: 0.9;
+    width: 44rem;
+    background: #003FA2;
+    top: 13.5vh;
+    height: 64px;
+    border-radius: 2.9px;
+    transition: margin-right 1.5s ease-in-out, opacity 1s;
+    z-index: 1;
+}
+.o-sweet-alert-delete {
+
+    position: fixed;
+    right: 0;
+    opacity: 0.9;
+    width: 44rem;
+    background: #DF4957;
+    top: 13.5vh;
+    height: 64px;
+    border-radius: 2.9px;
+    transition: margin-right 1.5s ease-in-out, opacity 1s;
+    z-index: 1;
+}
+.o-iconAlert {
+
+    margin-left: 1.1em;
+}
+.o-text-alert-add {
+
+    color: #FFFFFF;
+    opacity: 1;
+    margin-top: 1.55em;
+    margin-left: 1em;
+    font-size: 14px;
+}

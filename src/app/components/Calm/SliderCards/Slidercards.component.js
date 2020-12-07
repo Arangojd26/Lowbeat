@@ -1,35 +1,39 @@
 import React from 'react'
 import './Slidercards.css'
-// import VideoCalma1 from '../../../../assets/vid/VideoCalma1.mp4'
-// import VideoCalma2 from '../../../../assets/vid/VideoCalma2.mp4'
-// import VideoCalma3 from '../../../../assets/vid/VideoCalma3.mp4'
-// import ReactAudioPlayer from 'react-audio-player';
-// import CardVideo from '../CardVideo/CardVideo.component'
-// import AudCalma1 from '../../../../assets/aud/AudioCalma1.mp3'
 import ListCards from '../ListCards/ListCards.component';
 import { useDispatch, useSelector } from 'react-redux'
 import { obtenerVideosAccion, obtenerAudiosAccion } from '../../../Redux/Multimedia/multimediaDucks'
+import { obtenerVideoListaAccion, obtenerAudioListaAccion } from '../../../Redux/MyList/myListDucks'
 
 const Slidercards = (props) => {
 
     const dispatch = useDispatch()
 
-    const videos = useSelector(store => store.multimedia.urlVideos)
-    const audios = useSelector(store => store.multimedia.urlAudios)
+    const videosGeneral = useSelector(store => store.multimedia.urlVideos)
+    const audiosGeneral = useSelector(store => store.multimedia.urlAudios)
+
+    const videosMyList = useSelector(store => store.myList.listVideos)
+    const audiosMyList = useSelector(store => store.myList.listAudios)
 
     React.useEffect(() => {
         async function fetchData() {
 
-            if (props.typeCard === "video") {
+            if (props.typeCard === "video" && !props.cardList) {
                 
                 dispatch(obtenerVideosAccion(props.category))
-            } else {
+            } else if (props.typeCard === "audio" && !props.cardList) {
 
                 dispatch(obtenerAudiosAccion(props.category))
+            } else if (props.typeCard === "video" && props.cardList) {
+
+                dispatch(obtenerVideoListaAccion(props.category))
+            } else {
+
+                dispatch(obtenerAudioListaAccion(props.category))
             }
         }
         fetchData();
-    }, [dispatch, props.category, props.typeCard]);
+    }, [dispatch, props.category, props.typeCard, props.cardList]);
 
 
     return (
@@ -45,29 +49,45 @@ const Slidercards = (props) => {
                     props.typeCard === 'video' ? (
                         <>
                             <div className="carousel-item active">
-
-                                <ListCards category={props.category} cardList={props.cardList} typeCard={props.typeCard} items={videos} fallback={"Cargando..."} />
-
+                                <ListCards 
+                                    category={props.category} 
+                                    cardList={props.cardList} 
+                                    typeCard={props.typeCard} 
+                                    items={props.cardList ? videosMyList : videosGeneral} 
+                                    fallback={"Cargando..."} 
+                                />
                             </div>
 
                             <div className="carousel-item">
-
-                                <ListCards category={props.category} cardList={props.cardList} typeCard={props.typeCard} items={videos} fallback={"Cargando..."} />
-
+                                <ListCards 
+                                    category={props.category} 
+                                    cardList={props.cardList} 
+                                    typeCard={props.typeCard} 
+                                    items={props.cardList ? videosMyList : videosGeneral} 
+                                    fallback={"Cargando..."} 
+                                />
                             </div>
                         </>
                     ) : (
                         <>
                             <div className="carousel-item active">
-
-                                <ListCards category={props.category} cardList={props.cardList} typeCard={props.typeCard} items={audios} fallback={"Cargando..."} />
-
+                                <ListCards 
+                                    category={props.category} 
+                                    cardList={props.cardList} 
+                                    typeCard={props.typeCard} 
+                                    items={props.cardList ? audiosMyList : audiosGeneral} 
+                                    fallback={"Cargando..."} 
+                                />
                             </div>
 
                             <div className="carousel-item">
-
-                                <ListCards category={props.category} cardList={props.cardList} typeCard={props.typeCard} items={audios} fallback={"Cargando..."} />
-
+                                <ListCards 
+                                    category={props.category} 
+                                    cardList={props.cardList} 
+                                    typeCard={props.typeCard} 
+                                    items={props.cardList ? audiosMyList : audiosGeneral} 
+                                    fallback={"Cargando..."} 
+                                />
                             </div>
                         </>
                     )

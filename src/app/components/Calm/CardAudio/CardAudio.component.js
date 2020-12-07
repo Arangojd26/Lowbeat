@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import ModalVideo from '../../../shared/ModalVideo/ModalVideo.component'
 import { useDispatch } from 'react-redux'
-import { agregarAudioAccion } from '../../../Redux/MyList/myListDucks'
+import { agregarAudioAccion, eliminarAudioListaAccion } from '../../../Redux/MyList/myListDucks'
 
 const CardAudio = (props) => {
 
@@ -21,6 +21,12 @@ const CardAudio = (props) => {
     const addAudio = () => {
 
         dispatch(agregarAudioAccion(urls, props.category))
+    }
+
+    const deleteAudio = () => {
+
+        // console.log(props.id)
+        dispatch(eliminarAudioListaAccion(props.id))
     }
 
     return (
@@ -48,7 +54,7 @@ const CardAudio = (props) => {
                     <ModalVideo url={props.url} buttonLabel={'Abrir'} />
                     {
                         props.cardList ? (
-                            <button className="btn btn-info o-btn-video ml-3">Quitar</button>
+                            <button className="btn btn-info o-btn-video ml-3" onClick={() => deleteAudio()}>Quitar</button>
                         ) : <button className="btn btn-info o-btn-video ml-3" onClick={() => addAudio()}>Agregar</button>
                     }
                </div>
