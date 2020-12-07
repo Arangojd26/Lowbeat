@@ -48,7 +48,7 @@ const Menu = ({ setShowList }) => {
     }
     
     return (
-        <div className="d-flex pb-5 pt-5 mt-5">
+        <div className="o-container-menu-mylist d-flex">
             <div className="d-block ">
                 <div className="o-title-menu-lists pointer o-font-medium mx-5" onClick={() => handleMenu('Calma')} style={styleCalma}>Calma</div>
                 {esMenu === 'Calma' ? <div className="subraya" style={{ width: '58px' }}></div> : null}

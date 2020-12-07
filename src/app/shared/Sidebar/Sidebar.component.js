@@ -17,7 +17,7 @@ const Sidebar = (props) => {
         background: 'linear-gradient(1deg, rgba(98,73,133,1) 0%, rgba(180,128,251,1) 94%)',
         width: '16rem',
         height: '100vh',
-        zIndex: 1,
+        zIndex: 10,
         borderRadius: '0px 45px 45px 0px',
         opacity: 0,
         transition: 'opacity 0.5s'
@@ -31,7 +31,7 @@ const Sidebar = (props) => {
             background: 'linear-gradient(1deg, rgba(98,73,133,1) 0%, rgba(180,128,251,1) 94%)',
             width: '16rem',
             height: '100vh',
-            zIndex: 1,
+            zIndex: 10,
             borderRadius: '0px 45px 45px 0px',
             opacity: props.opacity,
             transition: 'opacity 0.5s'
@@ -48,7 +48,7 @@ const Sidebar = (props) => {
             background: 'linear-gradient(1deg, rgba(98,73,133,1) 0%, rgba(180,128,251,1) 94%)',
             width: '16rem',
             height: '100vh',
-            zIndex: 1,
+            zIndex: 10,
             borderRadius: '0px 45px 45px 0px',
             opacity: 0,
             transition: 'opacity 0.5s'

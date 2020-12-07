@@ -25,7 +25,7 @@ export default function multimediaReducer(state = dataInicial, action){
 // actions
 export const obtenerVideosAccion = (dataCollection) => async (dispatch) => {
     try {
-        const datos = await db.collection(dataCollection).get()
+        const datos = await db.collection(dataCollection).limit(4).get()
         const arrayData = datos.docs.map(doc => ({
             id: doc.id,
             ...doc.data()

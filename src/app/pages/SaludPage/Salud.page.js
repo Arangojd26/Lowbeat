@@ -18,11 +18,11 @@ const Salud = () => {
             <div className="o-title-category o-font-medium">Salud</div>
             <div className="o-container-slider">
                 <div className="o-title o-font-medium"><strong>Video</strong></div>
-                <Slidercards typeCard={'video'}/>
+                <Slidercards typeCard={'video'} category={'salud-videos'} />
             </div>
             <div className="o-container-slider">
                 <div className="o-title o-font-medium"><strong>Audio</strong></div>
-                <Slidercards typeCard={'audio'}/>
+                <Slidercards typeCard={'audio'} category={'salud-audios'} />
             </div>
         </>
     )

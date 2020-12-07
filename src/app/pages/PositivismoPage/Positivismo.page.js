@@ -18,11 +18,11 @@ const Positivismo = () => {
             <div className="o-title-category o-font-medium">Positivismo</div>
             <div className="o-container-slider">
                 <div className="o-title o-font-medium"><strong>Video</strong></div>
-                <Slidercards typeCard={'video'}/>
+                <Slidercards typeCard={'video'} category={'positivismo-videos'} />
             </div>
             <div className="o-container-slider">
                 <div className="o-title o-font-medium"><strong>Audio</strong></div>
-                <Slidercards typeCard={'audio'}/>
+                <Slidercards typeCard={'audio'} category={'positivismo-audios'} />
             </div>
         </>
     )

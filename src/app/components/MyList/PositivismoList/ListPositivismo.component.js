@@ -6,11 +6,11 @@ const ListPositivismo = () => {
         <>
             <div className="o-container-slider-list">
                 <div className="o-title o-font-medium"><strong>Video</strong></div>
-                <Slidercards cardList={true} typeCard={'video'} />
+                <Slidercards category={"positivismo-videos"} cardList={true} typeCard={'video'} />
             </div>
             <div className="o-container-slider">
                 <div className="o-title o-font-medium"><strong>Audio</strong></div>
-                <Slidercards typeCard={'audio'} />
+                <Slidercards category={"positivismo-audios"} cardList={true} typeCard={'audio'} />
             </div>
         </>
     )
