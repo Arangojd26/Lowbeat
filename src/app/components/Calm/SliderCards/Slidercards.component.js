@@ -10,12 +10,13 @@ const Slidercards = (props) => {
     const dispatch = useDispatch()
 
     const videosGeneral = useSelector(store => store.multimedia.urlVideos)
-    const videosGeneral2 = useSelector(store => store.multimedia.urlVideos2)
     const audiosGeneral = useSelector(store => store.multimedia.urlAudios)
+
+
+    const videosGeneral2 = useSelector(store => store.multimedia.urlVideos2)
     const audiosGeneral2 = useSelector(store => store.multimedia.urlAudios2)
 
     const videosMyList = useSelector(store => store.myList.listVideos)
-    
     const audiosMyList = useSelector(store => store.myList.listAudios)
 
     React.useEffect(() => {

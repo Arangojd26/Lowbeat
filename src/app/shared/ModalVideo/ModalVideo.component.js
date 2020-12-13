@@ -54,8 +54,8 @@ const ModalVideo = (props) => {
                         onReady={_onReady}
                     />
                 </ModalBody>
-                <ModalFooter>
-                    <Button color="secondary" onClick={toggle}>Cerrar</Button>
+                <ModalFooter className="o-modal-footer">
+                    <Button className="btn btn-info o-btn-close-video" onClick={toggle}>Cerrar</Button>
                 </ModalFooter>
             </Modal>
         </div>

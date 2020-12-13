@@ -111,3 +111,18 @@
     outline: none;
     border: none;
 }
+
+/* Media queries */
+@media (max-width: 970px) {
+  .o-container-cards-menu {
+      width: 35rem;
+      margin-left: 2rem;
+  }
+}
+@media (max-width: 575px) {
+  .o-container-cards-menu {
+      width: 20rem;
+      margin-left: 11rem;
+      margin-top: 23rem;
+  }
+}

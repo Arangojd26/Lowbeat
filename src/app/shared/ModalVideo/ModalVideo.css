@@ -2,3 +2,36 @@
     min-width: 25rem;
     height: auto;
 }
+.o-btn-close-video {
+
+    background-color: transparent;
+    color: #AA8E73;
+    border-radius: 6px ;
+    font-family: 'Avenir Next Rounded Pro Medium';
+    font-size: 14px ;
+    padding-top: 10px ;
+    padding-bottom: 10px ;
+    padding-left: 22px ;
+    padding-right: 22px ;
+    border: 0;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
+    outline: none !important;
+    margin-top: 1.1rem;
+}
+
+.o-btn-close-video:focus {
+    
+    outline:0;
+    outline: none;
+}
+.o-modal-footer {
+
+    /* background-color: teal; */
+    height: 2rem;
+}
+.o-btn-close-video:hover {
+
+    background-color: #AA8E73;
+    color: #ffffff;
+}
