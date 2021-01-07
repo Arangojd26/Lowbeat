@@ -43,8 +43,8 @@ const ModalVideo = (props) => {
     }
 
     return (
-        <div>
-            <Button className="o-btn-video" color="info" onClick={toggle}>{buttonLabel}</Button>
+        <>
+            <Button className="o-btn-video o-font-medium" style={{paddingLeft: '25px', paddingRight: '25px'}} color="info" onClick={toggle}>{buttonLabel}</Button>
             <Modal isOpen={modal} toggle={toggle} className="modal-dialog modal-dialog-centered modal-lg modal-video">
                 <ModalBody className="m-0 p-0">
                     {/* <ReactPlayer url={props.url} width='100%' height='28rem' /> */}
@@ -58,7 +58,7 @@ const ModalVideo = (props) => {
                     <Button className="btn btn-info o-btn-close-video" onClick={toggle}>Cerrar</Button>
                 </ModalFooter>
             </Modal>
-        </div>
+        </>
     )
 }
 
