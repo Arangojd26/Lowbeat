@@ -48,7 +48,7 @@ const Navbar = (props) => {
                 <div className="o-line-menu"></div>
             </div>
             <div className="">
-                <img className="o-logo-btl m-4" src={Logo} alt="Logo" />
+                <img className="o-logo-low-navbar" src={Logo} alt="Logo" />
             </div>
             <div className="o-container-btn-listas">
                 <button

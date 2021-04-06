@@ -1,80 +1,86 @@
 /* Estilos posición de la tarjeta */
-.Card-Login {
+.o-card-Login {
+  border: 0;
+  background-color: #ffffff;
+  border-radius: 30px 30px 0px 0px;
 
-    top: 60%;
-    border: 0;
+  -webkit-animation: slideInDown 2.3s 1; /* Safari 4+ */
+  -moz-animation: slideInDown 2.3s 1; /* Fx 5+ */
+  -o-animation: slideInDown 2.3s 1; /* Opera 12+ */
+  animation: slideInDown 2.3s 1; /* IE 10+, Fx 29+ */
 }
 .container-form {
-
-    width: 20rem;
-    margin-left: auto;
-    margin-right: auto;
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 .input-login {
-    padding: 0rem;
-    border: 0.5px solid #707070;
-    border-top: 0px solid;
-    border-right: 0px solid;
-    border-left: 0px solid;
-    margin: 0;
-    border-radius: 0;
+  padding: 0rem;
+  border: 0.5px solid #707070;
+  border-top: 0px solid;
+  border-right: 0px solid;
+  border-left: 0px solid;
+  margin: 0;
+  border-radius: 0;
 
-    font-family: 'Avenir Next Rounded Pro Medium';
-    letter-spacing: 0px;
-    color: #707070;
-    background: transparent;
-    opacity: 0.47;
-    font-size: 14px;
-    outline: none !important;
-    
+  font-family: "Avenir Next Rounded Pro Medium";
+  letter-spacing: 0px;
+  color: #707070;
+  background: transparent;
+  opacity: 0.47;
+  font-size: 14px;
+  outline: none !important;
 }
 input.input-login:focus {
-
-    border-color: inherit;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    background: transparent;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: transparent;
 }
 .form-label {
-    position: absolute;
-    left: 0;
-    top: 32px;
-    font-family: 'Avenir Next Rounded Pro Medium';
-    letter-spacing: 0px;
-    color: #707070;
-    opacity: 0.64;
-    font-size: 14px;
-    z-index: 0;
-    transition: transform 150ms ease-out, font-size 150ms ease-out;
-    cursor: text;
+  position: absolute;
+  left: 0;
+  top: 32px;
+  font-family: "Avenir Next Rounded Pro Medium";
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 0.64;
+  font-size: 14px;
+  z-index: 0;
+  transition: transform 150ms ease-out, font-size 150ms ease-out;
+  cursor: text;
 }
 .focused .form-label {
-    transform: translateY(-126%);
-    color: #59595B;
-    font-size: 10px;
+  transform: translateY(-126%);
+  color: #59595b;
+  font-size: 10px;
 }
 
 .input-group-text {
-    position: absolute;
-    border-top: 0px solid;
-    border-right: 0px solid;
-    border-left: 0px solid;
-    border-bottom: 0px solid;
-    color: #707070;
-    background: transparent;
-    opacity: 1;
-    margin-left: -2rem;
+  position: absolute;
+  border-top: 0px solid;
+  border-right: 0px solid;
+  border-left: 0px solid;
+  border-bottom: 0px solid;
+  color: #707070;
+  background: transparent;
+  opacity: 1;
+  margin-left: -2rem;
 }
 .iconpass {
-
-    margin-top: 0.4rem;
-    opacity: 90%;
-    cursor: pointer;
-    z-index: 20;
+  margin-top: 0.4rem;
+  opacity: 90%;
+  cursor: pointer;
+  z-index: 20;
 }
 
-@media (max-width: 1400px) {
-    .Card-Login {
-        top: 30%;
-    }
+@media (max-width: 768px) {
+  .o-card-Login {
+    /* bottom: 0; */
+    /* background-color: tomato; */
+    width: 100%;
+  }
+  .container-form {
+    width: 100%;
+  }
 }

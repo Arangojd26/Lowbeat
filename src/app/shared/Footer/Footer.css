@@ -6,4 +6,10 @@
     bottom: 1.8rem;
     font-size: 12px;
     color: #0E195A;
+    z-index: 1;
 }
+@media only screen and (max-width: 767px) {
+    .o-text-derechos-reservados {
+      z-index: -1;
+    }
+  }

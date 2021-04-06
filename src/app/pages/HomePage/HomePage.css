@@ -10,8 +10,9 @@
 /* Estilos del contenedor de las opciones del menu */
 .o-container-cards-menu {
 
+    /* background-color: thistle; */
     display: flex;
-    height: 80vh;
+    height: 90%;
     justify-content: center;
     align-items: center;
 }
