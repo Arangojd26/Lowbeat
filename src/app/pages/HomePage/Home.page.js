@@ -13,7 +13,8 @@ const Home = () => {
   const [opacity, setOpacity] = React.useState(0);
 
   return (
-    <div className="o-fondo-home">
+    <>
+      <div className="o-fondo-home" />
       <NavbarComponent setOpacity={setOpacity} setHideBar={setHideBar} />
       <SidebarComponent
         opacity={opacity}
@@ -21,15 +22,17 @@ const Home = () => {
         hideSidebar={hideSidebar}
         setHideBar={setHideBar}
       />
-      <div className="o-container-cards-menu">
-        <div className="row">
-          <CardMenu image={ImageCalm} title={"Calma"} />
-          <CardMenu image={ImageSalud} title={"Salud"} />
-          <CardMenu image={ImagePositivismo} title={"Positivismo"} />
-          <CardMenu image={ImageDescanso} title={"Descanso"} />
+      <div className="container-flex o-container-cards-menu">
+        <div className="o-content-cards-menu">
+          <div className="row">
+            <CardMenu image={ImageCalm} title={"Calma"} />
+            <CardMenu image={ImageSalud} title={"Salud"} />
+            <CardMenu image={ImagePositivismo} title={"Positivismo"} />
+            <CardMenu image={ImageDescanso} title={"Descanso"} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

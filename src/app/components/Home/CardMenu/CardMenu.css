@@ -1,3 +1,23 @@
+.o-prueba-box {
+
+  width: 15em;
+  height: 9rem;
+  background-color: violet;
+  margin-bottom: 2rem;
+}
+.o-column-card {
+  
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+
+  -webkit-animation: fadeInDown 2s 1; /* Safari 4+ */
+  -moz-animation: fadeInDown 2s 1; /* Fx 5+ */
+  -o-animation: fadeInDown 2s 1; /* Opera 12+ */
+  animation: fadeInDown 2s 1; /* IE 10+, Fx 29+ */
+}
+
 /*----  Main Style  ----*/
 #cards_landscape_wrap-2{
     text-align: center;

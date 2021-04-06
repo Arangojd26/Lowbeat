@@ -1,18 +1,63 @@
 /* Estilos del fondo del home */
 .o-fondo-home {
-
-    background-image: url("../../../assets/images/fondoHome.jpg");
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  position: absolute;
+  background-image: url("../../../assets/images/fondoHome.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  z-index: -1;
 }
 /* Estilos del contenedor de las opciones del menu */
 .o-container-cards-menu {
+  /* background-color: rgb(206, 182, 206); */
+  height: calc(100vh - 6rem);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-flex {
+  margin: 0;
+  padding: 0;
+}
+.o-content-cards-menu {
+  /* background-color: rgb(14, 165, 52); */
+  width: 100%;
+  height: 99%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 6rem;
+}
+/* .o-content-cards-menu::-webkit-scrollbar {
+  width: 8px;
+  height: 5px !important;
+} */
 
-    /* background-color: thistle; */
-    display: flex;
-    height: 90%;
-    justify-content: center;
-    align-items: center;
+/* .o-content-cards-menu::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.o-content-cards-menu::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.o-content-cards-menu::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+} */
+@media only screen and (max-width: 767px) {
+  .o-container-cards-menu {
+    align-items: flex-start;
+  }
+  .o-content-cards-menu {
+    justify-content: flex-start;
+    
+  }
 }

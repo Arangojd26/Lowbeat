@@ -25,7 +25,10 @@ const CardMenu = (props) => {
     } 
 
     return (
-        <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 o-column-card">
+            {/* <div className="o-prueba-box">
+
+            </div> */}
             <button className="o-btn-card-home" onClick={() => openCategory()}>
                 <div className="card-flyer">
                     <div className="text-box">
@@ -35,13 +38,11 @@ const CardMenu = (props) => {
                         </div>
                         <div className="text-container">
                             <h6 className="o-font-medium"><strong>{props.title}</strong></h6>
-                            {/* <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p> */}
                         </div>
                     </div>
                 </div>
             </button>
         </div>
-
     )
 }
 
