@@ -1,18 +1,56 @@
 .o-container-menu-mylist {
-    
-    margin-top: 4.5rem;
-    padding-bottom: 2rem;
+  /* background-color: thistle; */
+  margin-top: 4.5rem;
+  width: 100%;
+  height: 3rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* white-space: nowrap; */
+  /* padding-bottom: 2rem; */
+}
+.o-link-menu {
+  /* background-color: tomato; */
+  height: 100%;
 }
 .o-title-menu-lists {
-
-    font-size: 17px;
-    color: #747B87;
-    opacity: 1;
+  font-size: 17px;
+  color: #747b87;
+  opacity: 1;
+  cursor: pointer;
 }
 .subraya {
+  border-bottom: 3px solid #005ea8;
+  width: 100%;
+  margin-top: 0.5rem;
+  /* padding-top: 0.65em; */
+  /* margin-left: 1rem; */
+}
 
-    border-bottom: 3px solid #005EA8;
-    width: 75px;
-    padding-top: 0.65em;
-    margin-left: 2.9rem;
+.o-container-menu-mylist::-webkit-scrollbar {
+  width: 8px;
+  height: 5px !important;
+}
+
+.o-container-menu-mylist::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.o-container-menu-mylist::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.o-container-menu-mylist::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+@media only screen and (max-width: 575px) {
+  .o-container-menu-mylist {
+    display: flex;
+    justify-content: space-between;
+  }
+  .o-title-menu-lists {
+    font-size: 14px;
+  }
 }

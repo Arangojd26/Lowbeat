@@ -29,8 +29,7 @@ export const obtenerVideosAccion = (dataCollection) => async (dispatch) => {
     try {
 
         const datos = await db.collection(dataCollection)
-            .limit(4)
-            .orderBy('uid')
+            .orderBy('url')
             .get()
 
         const arrayData = datos.docs.map(doc => ({
@@ -39,7 +38,6 @@ export const obtenerVideosAccion = (dataCollection) => async (dispatch) => {
         }))
 
         const datosNext = await db.collection(dataCollection)
-            .limit(4)
             .orderBy('uid')
             .startAfter(datos.docs[datos.docs.length - 1])
             .get()
@@ -50,7 +48,7 @@ export const obtenerVideosAccion = (dataCollection) => async (dispatch) => {
         }))
 
         console.log("arrayDataNext: ")
-        console.log(arrayDataNext)
+        console.log(arrayData)
 
         dispatch({
             type: GET_VIDEOS_SUCCESS,

@@ -1,10 +1,6 @@
 import React from 'react'
-import ListCalma from '../../components/MyList/CalmaList/ListCalma.component'
-import ListDescanso from '../../components/MyList/DescansoList/ListDescanso.component'
-// import Slidercards from '../../components/Calm/SliderCards/Slidercards.component'
+import ContainerMyList from '../../components/MyList/ContainerList/ContainerMyList.component'
 import Menu from '../../components/MyList/Menu/Menu.component'
-import ListPositivismo from '../../components/MyList/PositivismoList/ListPositivismo.component'
-import ListSalud from '../../components/MyList/SaludList/ListSalud.component'
 import BackButtonComponent from '../../shared/BackButton/BackButton.component'
 import NavbarComponent from '../../shared/Navbar/Navbar.component'
 import SidebarComponent from '../../shared/Sidebar/Sidebar.component'
@@ -28,13 +24,13 @@ const MyList = () => {
                 <Menu setShowList={setShowList} />
                 {
                     showList === 'Calma' ? (
-                        <ListCalma />
+                        <ContainerMyList category={"calma-videos"}/>
                     ) : showList === 'Salud' ? (
-                        <ListSalud />
+                        <ContainerMyList category={"salud-videos"}/>
                     ) : showList === 'Positivismo' ? (
-                        <ListPositivismo />
+                        <ContainerMyList category={"positivismo-videos"}/>
                     ) : showList === 'Descanso' ? (
-                        <ListDescanso />
+                        <ContainerMyList category={"descanso-videos"}/>
                     ) : null
                 }
                 

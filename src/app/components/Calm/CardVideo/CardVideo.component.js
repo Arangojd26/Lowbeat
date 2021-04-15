@@ -11,36 +11,22 @@ import {
 const CardVideo = (props) => {
   const dispatch = useDispatch();
 
-  const [urls, setUrls] = React.useState(null);
+  // const [urls, setUrls] = React.useState(null);
 
-  React.useEffect(() => {
-    function fetchUrl() {
-      // You can await here
-      setUrls(props.url);
-    }
+  // React.useEffect(() => {
+  //   function fetchUrl() {
+  //     // You can await here
+  //     setUrls(props.url);
+  //   }
 
-    fetchUrl();
-  }, [props.url]);
-
-//   const opts = {
-//     height: "220px",
-//     width: "100%",
-//     playerVars: {
-//       // https://developers.google.com/youtube/player_parameters
-//       autoplay: 0,
-//     },
-//   };
-
-//   const _onReady = (event) => {
-//     event.target.pauseVideo();
-//   };
+  //   fetchUrl();
+  // }, [props.url]);
 
   const addVideo = () => {
-    dispatch(agregarVideoAccion(urls, props.category));
+    dispatch(agregarVideoAccion(props.url, props.category));
   };
 
   const deleteVideo = () => {
-    // console.log(props.id)
     dispatch(eliminarVideoListaAccion(props.id));
   };
 
@@ -49,7 +35,7 @@ const CardVideo = (props) => {
       <div className="wrapper">
         <ReactPlayer
           className="react-player"
-          url={`https://www.youtube.com/watch?v=${urls}`}
+          url={`https://www.youtube.com/watch?v=${props.url}`}
           width="100%"
           height="100%"
           light={true}
@@ -59,10 +45,10 @@ const CardVideo = (props) => {
 
       <div className="o-container-name">
         <div className="o-container-buttons-card">
-          <ModalVideo url={urls} buttonLabel={"Abrir"} />
+          <ModalVideo url={props.url} buttonLabel={"Abrir"} />
           {props.cardList ? (
             <button
-              className="btn btn-info o-btn-delete o-font-medium ml-2"
+              className="btn btn-info o-btn-video o-font-medium ml-2"
               onClick={() => deleteVideo()}
             >
               Quitar

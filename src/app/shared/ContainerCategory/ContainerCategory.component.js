@@ -14,9 +14,8 @@ const ContainerCategory = (props) => {
   return (
     <div className="o-container-category">
       <div className="o-container-img-category-calma" style={styleImageBG} />
-
+      
       <div className="o-container-carousel-cards">
-        
         <div className="o-container-card-slider">{children}</div>
       </div>
     </div>

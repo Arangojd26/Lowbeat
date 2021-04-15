@@ -2,8 +2,9 @@
   width: 100%;
   height: 280px;
   /* max-width: 100%; */
-  padding-right: 1rem;
-  
+  /* padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  margin-bottom: 0.7rem; */
 }
 .wrapper {
   position: relative;
@@ -44,30 +45,7 @@
   background-color: #aa8e73;
   color: #ffffff;
 }
-.o-btn-delete {
-  background-color: transparent;
-  color: #aa8e73;
-  border-radius: 6px;
-  font-family: "Avenir Next Rounded Pro Medium";
-  font-size: 14px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 22px;
-  padding-right: 22px;
-  border: 0;
-  transition: background-color 0.5s;
-  transition: color 0.5s;
-  outline: none !important;
-  margin-top: -1rem;
-}
-.o-btn-delete:focus {
-  outline: 0;
-  outline: none;
-}
-.o-btn-delete:hover {
-  background-color: #aa8e73;
-  color: #ffffff;
-}
+
 .o-container-name {
   /* position: absolute;
   bottom: 0rem;

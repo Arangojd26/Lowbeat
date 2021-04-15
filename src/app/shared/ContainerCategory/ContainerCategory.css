@@ -16,7 +16,7 @@
 .o-container-card-slider {
   background-color: #ffffff;
   width: 35rem;
-  height: 25rem;
+  height: 28rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.28);
   border-radius: 25px;
   margin-left: -4rem;
@@ -28,6 +28,23 @@
   -moz-animation: slideInDown 2s 1; /* Fx 5+ */
   -o-animation: slideInDown 2s 1; /* Opera 12+ */
   animation: slideInDown 2s 1; /* IE 10+, Fx 29+ */
+}
+/* Estilos del título general */
+.o-title-category-carousel {
+  font-size: 24px;
+  /* text-align: center; */
+  /* margin-right: auto; */
+  /* margin-left: 3rem; */
+  margin-top: 2rem;
+  color: #1b1b1b;
+}
+.o-container-carousel {
+  margin-top: 1.4rem;
+  /* background-color: violet; */
+  width: 83%;
+  height: 74%;
+  /* padding-left: 3rem;
+  padding-right: 3rem; */
 }
 @media only screen and (max-width: 1285px) {
   .o-container-card-slider {
@@ -56,5 +73,11 @@
   .o-container-card-slider {
     margin-left: 0%;
     background-color: #ffffff;
+  }
+  .o-title-category-carousel {
+    color: #111111;
+  }
+  .o-container-carousel {
+    width: 90%;
   }
 }

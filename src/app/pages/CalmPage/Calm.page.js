@@ -25,25 +25,15 @@ const Calm = () => {
         hideSidebar={hideSidebar}
         setHideBar={setHideBar}
       />
-      {/* <BackButtonComponent /> */}
-      <SweetAlert />
 
+      <SweetAlert />
+      <BackButtonComponent />
       <ContainerCategory imgCategory={imageCategoryCalm}>
         <div className="o-title-category-carousel">Calma</div>
         <div className="o-container-carousel">
-          <SliderCard typeCard={'video'} category={'calma-videos'} />
+          <SliderCard typeCard={"video"} category={"calma-videos"} />
         </div>
       </ContainerCategory>
-
-      {/* <div className="o-title-category o-font-medium">Calma</div>
-            <div className="o-container-slider">
-                <div className="o-title o-font-medium"><strong>Video</strong></div>
-                <Slidercards typeCard={'video'} category={'calma-videos'} />
-            </div>
-            <div className="o-container-slider">
-                <div className="o-title o-font-medium"><strong>Audio</strong></div>
-                <Slidercards typeCard={'audio'} category={'calma-audios'} />
-            </div> */}
     </>
   );
 };

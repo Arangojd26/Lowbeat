@@ -49,20 +49,20 @@ const Menu = ({ setShowList }) => {
     
     return (
         <div className="o-container-menu-mylist d-flex">
-            <div className="d-block ">
-                <div className="o-title-menu-lists pointer o-font-medium mx-5" onClick={() => handleMenu('Calma')} style={styleCalma}>Calma</div>
-                {esMenu === 'Calma' ? <div className="subraya" style={{ width: '58px' }}></div> : null}
+            <div className="o-link-menu mx-2 mx-sm-4 mx-md-5">
+                <div className="o-title-menu-lists o-font-medium" onClick={() => handleMenu('Calma')} style={styleCalma}>Calma</div>
+                {esMenu === 'Calma' ? <div className="subraya"></div> : null}
             </div>
-            <div className="d-block ">
-                <div className="o-title-menu-lists pointer o-font-medium mx-5" onClick={() => handleMenu('Salud')} style={styleSalud}>Salud</div>
-                {esMenu === 'Salud' ? <div className="subraya" style={{ width: '51px' }}></div> : null}
+            <div className="o-link-menu mx-2 mx-sm-4 mx-md-5">
+                <div className="o-title-menu-lists o-font-medium" onClick={() => handleMenu('Salud')} style={styleSalud}>Salud</div>
+                {esMenu === 'Salud' ? <div className="subraya"></div> : null}
             </div>
-            <div className="d-block ">
-                <div className="o-title-menu-lists pointer o-font-medium mx-5" onClick={() => handleMenu('Positivismo')} style={stylePositivismo}>Positivismo</div>
-                {esMenu === 'Positivismo' ? <div className="subraya" style={{ width: '93px' }}></div> : null}
+            <div className="o-link-menu mx-2 mx-sm-4 mx-md-5">
+                <div className="o-title-menu-lists o-font-medium" onClick={() => handleMenu('Positivismo')} style={stylePositivismo}>Positivismo</div>
+                {esMenu === 'Positivismo' ? <div className="subraya"></div> : null}
             </div>
-            <div className="d-block ">
-                <div className="o-title-menu-lists pointer o-font-medium mx-5" onClick={() => handleMenu('Descanso')} style={styleDescanso}>Descanso</div>
+            <div className="o-link-menu mx-2 mx-sm-4 mx-md-5">
+                <div className="o-title-menu-lists o-font-medium" onClick={() => handleMenu('Descanso')} style={styleDescanso}>Descanso</div>
                 {esMenu === 'Descanso' ? <div className="subraya"></div> : null}
             </div>
         </div>

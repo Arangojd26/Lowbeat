@@ -50,10 +50,10 @@ function App() {
         <Route component={Home} path="/" exact/>
         <Route component={Login} path="/login" exact />
         <Route component={Calm} path="/calma" exact />
-        <PrivateRoute component={Salud} path="/salud" exact />
+        <Route component={Salud} path="/salud" exact />
         <PrivateRoute component={Positivismo} path="/positivismo" exact />
         <PrivateRoute component={Descanso} path="/descanso" exact />
-        <PrivateRoute component={MyList} path="/listas" exact />
+        <Route component={MyList} path="/listas" exact />
       </Switch>
     </Router>
   ) : (

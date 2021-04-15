@@ -2,16 +2,15 @@ import React from "react";
 import Slider from "react-slick";
 import { useDispatch, useSelector } from "react-redux";
 import { obtenerVideosAccion } from "../../../Redux/Multimedia/multimediaDucks";
-import { obtenerVideoListaAccion } from "../../../Redux/MyList/myListDucks";
-// import ListCards from "../../Calm/ListCards/ListCards.component";
 import "./SliderCard.css";
 import CardVideo from "../../Calm/CardVideo/CardVideo.component";
+import LoadingLogin from "../../Login/LoadingLogin/LoadingLogin.component";
+import iconForward from "../../../../assets/icons/forward.svg";
 
 const SliderCard = (props) => {
   const dispatch = useDispatch();
 
   const videosGeneral = useSelector((store) => store.multimedia.urlVideos);
-  const videosMyList = useSelector((store) => store.myList.listVideos);
 
   const [loadedVideos, setLoadedVideos] = React.useState(false);
 
@@ -19,32 +18,23 @@ const SliderCard = (props) => {
     async function fetchData() {
       setTimeout(() => {
         setLoadedVideos(true);
-      }, 3000);
+      }, 2200);
 
-      if (props.typeCard === "video" && !props.cardList) {
-        dispatch(obtenerVideosAccion(props.category));
-      } else if (props.typeCard === "video" && props.cardList) {
-        dispatch(obtenerVideoListaAccion(props.category));
-      }
+      dispatch(obtenerVideosAccion(props.category));
     }
     fetchData();
-  }, [dispatch, props.category, props.typeCard, props.cardList]);
+  }, [dispatch, props.category]);
 
   const SampleNextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
       <div
-        className={className}
-        style={{
-          ...style,
-          display: "block",
-          background: "black",
-          borderRadius: "50%",
-          width: "18px",
-          height: "18px",
-        }}
+        className={("slick-arrow", className)}
+        style={{ ...style, display: "flex", marginRight: "-0.5rem" }}
         onClick={onClick}
-      />
+      >
+        <img className="o-icon-forward" src={iconForward} alt="arrow_right" />
+      </div>
     );
   };
 
@@ -52,17 +42,12 @@ const SliderCard = (props) => {
     const { className, style, onClick } = props;
     return (
       <div
-        className={className}
-        style={{
-          ...style,
-          display: "block",
-          background: "black",
-          borderRadius: "50%",
-          width: "19px",
-          height: "19px",
-        }}
+        className={("slick-arrow", className)}
+        style={{ ...style, display: "flex", marginLeft: "-0.5rem" }}
         onClick={onClick}
-      />
+      >
+        <img className="o-icon-backward" src={iconForward} alt="arrow_left" />
+      </div>
     );
   };
 
@@ -71,8 +56,10 @@ const SliderCard = (props) => {
     className: "center",
     centerMode: true,
     infinite: true,
+    lazyLoad: true,
     centerPadding: "33px",
     slidesToShow: 1,
+    slidesToScroll: 1,
     speed: 500,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -84,6 +71,7 @@ const SliderCard = (props) => {
           centerMode: true,
           slidesToShow: 1,
           slidesToScroll: 1,
+          lazyLoad: true,
           infinite: true,
           dots: true,
           centerPadding: "0px",
@@ -95,18 +83,10 @@ const SliderCard = (props) => {
   return loadedVideos ? (
     <div className="o-container-slider-setting">
       <Slider {...settings}>
-        {/* <ListCards
-        category={props.category}
-        cardList={props.cardList}
-        typeCard={props.typeCard}
-        items={props.cardList ? videosMyList : videosGeneral}
-        fallback={"Cargando..."}
-      /> */}
         {videosGeneral.map((item) => (
-          <div key={item.url}>
+          <div key={item.url} className="px-2 mb-2">
             <CardVideo
               category={props.category}
-              cardList={props.cardList}
               url={item.url}
               id={item.id}
             />
@@ -115,7 +95,9 @@ const SliderCard = (props) => {
       </Slider>
     </div>
   ) : (
-    <div>{"Cargando..."}</div>
+    <div className="o-container-loading-slider">
+      <LoadingLogin openLoading={true} />
+    </div>
   );
 };
 

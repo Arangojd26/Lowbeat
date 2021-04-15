@@ -1,0 +1,51 @@
+.o-container-mylist {
+  /* background-color: thistle; */
+  width: 100%;
+  height: calc(100vh - 15rem);
+  margin-top: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-animation: fadeIn 1s 1; /* Safari 4+ */
+  -moz-animation: fadeIn 1s 1; /* Fx 5+ */
+  -o-animation: fadeIn 1s 1; /* Opera 12+ */
+  animation: fadeIn 1s 1; /* IE 10+, Fx 29+ */
+  /* display: flex; */
+}
+.o-prub {
+  width: 100%;
+  height: 12rem;
+  background: white;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.o-container-mylist::-webkit-scrollbar {
+  width: 8px;
+  height: 0;
+  background: #ffffff;
+}
+
+.o-container-mylist::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    1deg,
+    rgba(98, 73, 133, 1) 0%,
+    rgba(180, 128, 251, 1) 94%
+  );
+  border-radius: 4px;
+}
+
+.o-container-mylist::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.o-container-mylist::-webkit-scrollbar-thumb:active {
+  background-color: #ffffff;
+}
+.o-container-loading-mylist {
+  /* background-color: aquamarine; */
+  width: 100%;
+  height: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

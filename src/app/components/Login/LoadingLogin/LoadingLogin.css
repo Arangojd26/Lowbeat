@@ -3,16 +3,16 @@
     font-size: 16px;
     color: #0E195A;
     opacity: 1;
-    position: absolute;
-    right: 0;
-    margin-right: 6.2rem;
-    margin-top: 3.4rem;
+    /* position: relative; */
+    /* right: 0; */
+    margin-right: 2rem;
+    margin-top: -0.5rem;
 }
 .loader {
-    position: absolute;
-    right: 0;
-    margin-right: 4rem;
-    margin-top: 4rem;
+    /* position: relative; */
+    /* right: 0; */
+    margin-left: 6.5rem;
+    margin-top: -0.8rem;
     
     font-size: 5px;
     width: 1em;
