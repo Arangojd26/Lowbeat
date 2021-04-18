@@ -47,10 +47,10 @@ function App() {
   return firebaseUser !== false ? (
     <Router>
       <Switch>
-        <Route component={Home} path="/" exact/>
+        <PrivateRoute component={Home} path="/" exact/>
         <Route component={Login} path="/login" exact />
-        <Route component={Calm} path="/calma" exact />
-        <Route component={Salud} path="/salud" exact />
+        <PrivateRoute component={Calm} path="/calma" exact />
+        <PrivateRoute component={Salud} path="/salud" exact />
         <PrivateRoute component={Positivismo} path="/positivismo" exact />
         <PrivateRoute component={Descanso} path="/descanso" exact />
         <Route component={MyList} path="/listas" exact />

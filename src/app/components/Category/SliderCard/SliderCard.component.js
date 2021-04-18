@@ -26,11 +26,15 @@ const SliderCard = (props) => {
   }, [dispatch, props.category]);
 
   const SampleNextArrow = (props) => {
-    const { className, style, onClick } = props;
+    const { className, style, onClick, brakepoint } = props;
     return (
       <div
         className={("slick-arrow", className)}
-        style={{ ...style, display: "flex", marginRight: "-0.5rem" }}
+        style={
+          brakepoint === "desktop"
+            ? { ...style, display: "flex", marginRight: "-0.5rem" }
+            : { ...style, display: "flex", marginRight: "2.5rem" }
+        }
         onClick={onClick}
       >
         <img className="o-icon-forward" src={iconForward} alt="arrow_right" />
@@ -39,11 +43,15 @@ const SliderCard = (props) => {
   };
 
   const SamplePrevArrow = (props) => {
-    const { className, style, onClick } = props;
+    const { className, style, onClick, brakepoint } = props;
     return (
       <div
         className={("slick-arrow", className)}
-        style={{ ...style, display: "flex", marginLeft: "-0.5rem" }}
+        style={
+          brakepoint === "desktop"
+            ? { ...style, display: "flex", marginLeft: "-0.5rem" }
+            : { ...style, display: "flex", marginLeft: "2.5rem" }
+        }
         onClick={onClick}
       >
         <img className="o-icon-backward" src={iconForward} alt="arrow_left" />
@@ -61,8 +69,8 @@ const SliderCard = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     speed: 500,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow brakepoint={"desktop"} />,
+    prevArrow: <SamplePrevArrow brakepoint={"desktop"} />,
     responsive: [
       {
         breakpoint: 873,
@@ -75,7 +83,8 @@ const SliderCard = (props) => {
           infinite: true,
           dots: true,
           centerPadding: "0px",
-          arrows: false,
+          nextArrow: <SampleNextArrow brakepoint={"mobile"} />,
+          prevArrow: <SamplePrevArrow brakepoint={"mobile"} />,
         },
       },
     ],
@@ -85,11 +94,7 @@ const SliderCard = (props) => {
       <Slider {...settings}>
         {videosGeneral.map((item) => (
           <div key={item.url} className="px-2 mb-2">
-            <CardVideo
-              category={props.category}
-              url={item.url}
-              id={item.id}
-            />
+            <CardVideo category={props.category} url={item.url} id={item.id} />
           </div>
         ))}
       </Slider>

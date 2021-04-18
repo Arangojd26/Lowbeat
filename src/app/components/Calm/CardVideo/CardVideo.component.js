@@ -27,7 +27,7 @@ const CardVideo = (props) => {
   };
 
   const deleteVideo = () => {
-    dispatch(eliminarVideoListaAccion(props.id));
+    dispatch(eliminarVideoListaAccion(props.id, props.category));
   };
 
   return (

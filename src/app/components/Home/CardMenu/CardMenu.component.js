@@ -25,7 +25,7 @@ const CardMenu = (props) => {
     } 
 
     return (
-        <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 o-column-card">
+        <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 o-column-card ">
             {/* <div className="o-prueba-box">
 
             </div> */}

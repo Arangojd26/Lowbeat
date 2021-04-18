@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { batch, useDispatch, useSelector } from "react-redux";
 import { obtenerVideoListaAccion } from "../../../Redux/MyList/myListDucks";
 import CardVideo from "../../Calm/CardVideo/CardVideo.component";
 import LoadingLogin from "../../Login/LoadingLogin/LoadingLogin.component";
@@ -8,20 +8,18 @@ import "./ContainerMyList.css";
 const ContainerMyList = ({ category }) => {
   const dispatch = useDispatch();
   const videosMyList = useSelector((store) => store.myList.listVideos);
-  const [loadedVideos, setLoadedVideos] = React.useState(false);
+  const loadingVideos = useSelector((store) => store.myList.loading);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     async function fetchData() {
-      dispatch(obtenerVideoListaAccion(category));
-      setLoadedVideos(false);
-      setTimeout(() => {
-        setLoadedVideos(true);
-      }, 500);
+      batch(() => {
+        dispatch(obtenerVideoListaAccion(category));
+      });
     }
     fetchData();
   }, [dispatch, category]);
 
-  return loadedVideos ? (
+  return !loadingVideos ? (
     <div className="o-container-mylist px-2 px-sm-4 px-md-5 container-fluid">
       <div className="row justify-content-start">
         {videosMyList.map((item) => (

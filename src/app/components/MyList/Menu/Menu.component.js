@@ -1,7 +1,11 @@
 import React from 'react'
+import { useDispatch} from "react-redux";
+import { loadingVideoListaAccion } from "../../../Redux/MyList/myListDucks";
 import './Menu.css'
 
 const Menu = ({ setShowList }) => {
+    
+    const dispatch = useDispatch();
 
     const [esMenu, setMenu] = React.useState('Calma'); 
     
@@ -12,6 +16,7 @@ const Menu = ({ setShowList }) => {
 
     const handleMenu = (estado) => {
 
+        dispatch(loadingVideoListaAccion(estado));
 
         if (estado === 'Calma') {
             setMenu('Calma')

@@ -20,7 +20,6 @@
   height: 21px;
   /* background-color: thistle; */
   margin-top: -1.3rem;
-  
 }
 
 .o-icon-forward {
@@ -32,4 +31,9 @@
 .o-icon-backward {
 
   transform: rotateZ(180deg);
+}
+@media only screen and (max-width: 873px) {
+  .slick-arrow {
+    margin-top: -11.4rem;
+  }
 }

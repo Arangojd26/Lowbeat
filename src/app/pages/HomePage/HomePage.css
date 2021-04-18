@@ -52,7 +52,7 @@
 .o-content-cards-menu::-webkit-scrollbar-thumb:active {
   background-color: #999999;
 } */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1200px) {
   .o-container-cards-menu {
     align-items: flex-start;
   }
