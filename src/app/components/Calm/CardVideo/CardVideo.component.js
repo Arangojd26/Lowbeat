@@ -9,18 +9,8 @@ import {
 } from "../../../Redux/MyList/myListDucks";
 
 const CardVideo = (props) => {
+  
   const dispatch = useDispatch();
-
-  // const [urls, setUrls] = React.useState(null);
-
-  // React.useEffect(() => {
-  //   function fetchUrl() {
-  //     // You can await here
-  //     setUrls(props.url);
-  //   }
-
-  //   fetchUrl();
-  // }, [props.url]);
 
   const addVideo = () => {
     dispatch(agregarVideoAccion(props.url, props.category));
@@ -67,4 +57,4 @@ const CardVideo = (props) => {
   );
 };
 
-export default CardVideo;
+export default React.memo(CardVideo);

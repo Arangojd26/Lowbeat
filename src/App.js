@@ -1,59 +1,65 @@
 import React from "react";
-import { BrowserRouter as Router, Switch,Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Home from "./app/pages/HomePage/Home.page";
 import Login from "./app/pages/LoginPage/Login.page";
-import './App.css'
+import "./App.css";
 import Calm from "./app/pages/CalmPage/Calm.page";
 import Salud from "./app/pages/SaludPage/Salud.page";
 import Positivismo from "./app/pages/PositivismoPage/Positivismo.page";
 import Descanso from "./app/pages/DescansoPage/Descanso.page";
 import MyList from "./app/pages/ListsPage/MyList.page";
+import SidebarProvider from "./app/context/SidebarProvider";
 
-import {auth} from './firebase'
+import { auth } from "./firebase";
 import Loading from "./app/pages/LoadingPage/Loading.page";
 
-
 function App() {
-
-  const [firebaseUser, setFirebaseUser] = React.useState(false)
+  const [firebaseUser, setFirebaseUser] = React.useState(false);
 
   React.useEffect(() => {
     const fetchUser = () => {
-      auth.onAuthStateChanged(user => {
-        console.log(user)
-        if(user){
-          setFirebaseUser(user)
+      auth.onAuthStateChanged((user) => {
+        console.log(user);
+        if (user) {
+          setFirebaseUser(user);
         } else {
-          setFirebaseUser(null)
+          setFirebaseUser(null);
         }
-      })
-    }
-    fetchUser()
-  }, [])
+      });
+    };
+    fetchUser();
+  }, []);
 
-  const PrivateRoute = ({component, path, ...rest}) => {
-    if(localStorage.getItem('usuario')){
-      const usuarioStorage = JSON.parse(localStorage.getItem('usuario'))
-      if(usuarioStorage.uid === firebaseUser.uid){
-        return <Route component={component} path={path} {...rest} />
+  const PrivateRoute = ({ component, path, ...rest }) => {
+    if (localStorage.getItem("usuario")) {
+      const usuarioStorage = JSON.parse(localStorage.getItem("usuario"));
+      if (usuarioStorage.uid === firebaseUser.uid) {
+        return <Route component={component} path={path} {...rest} />;
       } else {
-        return <Redirect to="/login" {...rest} />
+        return <Redirect to="/login" {...rest} />;
       }
     } else {
-      return <Redirect to="/login" {...rest} />
+      return <Redirect to="/login" {...rest} />;
     }
-  }
+  };
 
   return firebaseUser !== false ? (
     <Router>
       <Switch>
-        <PrivateRoute component={Home} path="/" exact/>
         <Route component={Login} path="/login" exact />
-        <PrivateRoute component={Calm} path="/calma" exact />
-        <PrivateRoute component={Salud} path="/salud" exact />
-        <PrivateRoute component={Positivismo} path="/positivismo" exact />
-        <PrivateRoute component={Descanso} path="/descanso" exact />
-        <Route component={MyList} path="/listas" exact />
+        <SidebarProvider>
+          <PrivateRoute component={Home} path="/" exact />
+          <PrivateRoute component={Calm} path="/calma" exact />
+          <PrivateRoute component={Salud} path="/salud" exact />
+          <PrivateRoute component={Positivismo} path="/positivismo" exact />
+          <PrivateRoute component={Descanso} path="/descanso" exact />
+          <Route component={MyList} path="/listas" exact />
+        </SidebarProvider>
       </Switch>
     </Router>
   ) : (

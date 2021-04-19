@@ -6,11 +6,15 @@ import IconDescanso from "../../../assets/icons/descansoNav.svg";
 import { useDispatch } from "react-redux";
 import { cerrarSesionAccion } from "../../Redux/Login/usuarioDucks";
 import { withRouter } from "react-router-dom";
+import { SidebarContext } from "../../context/SidebarProvider";
 import "./Sidebar.css";
 
 const Sidebar = (props) => {
-  // const [displayBar, setDisplayBar] = React.useState(true)
+
   const dispatch = useDispatch();
+
+  const { hideSidebar, setHideBar } = React.useContext(SidebarContext);
+  const { opacity, setOpacity } = React.useContext(SidebarContext);
 
   const [hoverExitText, setHoverExitText] = React.useState(
     "o-title-exit o-font-regular"
@@ -31,6 +35,7 @@ const Sidebar = (props) => {
     opacity: 0,
     transition: "opacity 0.5s",
   });
+
   React.useEffect(() => {
     setStyleNav({
       position: "absolute",
@@ -42,13 +47,13 @@ const Sidebar = (props) => {
       height: "100vh",
       zIndex: 10,
       borderRadius: "0px 45px 45px 0px",
-      opacity: props.opacity,
+      opacity: opacity,
       transition: "opacity 0.5s",
     });
-  }, [props.opacity]);
+  }, [opacity]);
 
   const closeSideBar = () => {
-    props.setOpacity(0);
+    setOpacity(0);
     setStyleNav({
       position: "absolute",
       top: 0,
@@ -64,11 +69,13 @@ const Sidebar = (props) => {
     });
 
     setTimeout(() => {
-      props.setHideBar(true);
+      setHideBar(true);
     }, 700);
   };
 
   const goRouteNav = (route) => {
+
+    setHideBar(true);
     switch (route) {
       case "calma":
         props.history.push("/calma");
@@ -103,7 +110,7 @@ const Sidebar = (props) => {
   };
 
   return (
-    <div className={props.hideSidebar ? "d-none" : ""} style={styleNav}>
+    <div className={hideSidebar ? "d-none" : ""} style={styleNav}>
       <div className="o-container-menu-nav">
         <div className="o-menu-nav o-font-medium">Menú</div>
         <div

@@ -9,19 +9,10 @@ import imageCategoryDescanso from "../../../assets/images/descansoBG.jpg";
 import "./Descanso.css";
 
 const Descanso = () => {
-  const [hideSidebar, setHideBar] = React.useState(true);
-  const [opacity, setOpacity] = React.useState(0);
-
   return (
     <>
-      <NavbarComponent setOpacity={setOpacity} setHideBar={setHideBar} />
-      <SidebarComponent
-        opacity={opacity}
-        setOpacity={setOpacity}
-        hideSidebar={hideSidebar}
-        setHideBar={setHideBar}
-      />
-
+      <NavbarComponent />
+      <SidebarComponent />
       <SweetAlert />
       <BackButtonComponent />
       <ContainerCategory imgCategory={imageCategoryDescanso}>

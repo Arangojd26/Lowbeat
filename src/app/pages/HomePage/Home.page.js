@@ -9,19 +9,12 @@ import ImagePositivismo from "../../../assets/images/iconPositivismo.png";
 import ImageDescanso from "../../../assets/images/iconDescanso.png";
 
 const Home = () => {
-  const [hideSidebar, setHideBar] = React.useState(true);
-  const [opacity, setOpacity] = React.useState(0);
 
   return (
     <>
       <div className="o-fondo-home" />
-      <NavbarComponent setOpacity={setOpacity} setHideBar={setHideBar} />
-      <SidebarComponent
-        opacity={opacity}
-        setOpacity={setOpacity}
-        hideSidebar={hideSidebar}
-        setHideBar={setHideBar}
-      />
+      <NavbarComponent />
+      <SidebarComponent />
       <div className="container-flex o-container-cards-menu">
         <div className="o-content-cards-menu">
           <div className="row">

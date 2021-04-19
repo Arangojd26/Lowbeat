@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import { useDispatch, useSelector } from "react-redux";
+import { batch, useDispatch, useSelector } from "react-redux";
 import { obtenerVideosAccion } from "../../../Redux/Multimedia/multimediaDucks";
 import "./SliderCard.css";
 import CardVideo from "../../Calm/CardVideo/CardVideo.component";
@@ -19,8 +19,9 @@ const SliderCard = (props) => {
       setTimeout(() => {
         setLoadedVideos(true);
       }, 2200);
-
-      dispatch(obtenerVideosAccion(props.category));
+      batch(() => {
+        dispatch(obtenerVideosAccion(props.category));
+      });
     }
     fetchData();
   }, [dispatch, props.category]);
@@ -89,15 +90,18 @@ const SliderCard = (props) => {
       },
     ],
   };
+
+  const renderGeneralVideosPerCategory = () => {
+    return videosGeneral.map((item) => (
+      <div key={item.url} className="px-2 mb-2">
+        <CardVideo category={props.category} url={item.url} id={item.id} />
+      </div>
+    ));
+  };
+
   return loadedVideos ? (
     <div className="o-container-slider-setting">
-      <Slider {...settings}>
-        {videosGeneral.map((item) => (
-          <div key={item.url} className="px-2 mb-2">
-            <CardVideo category={props.category} url={item.url} id={item.id} />
-          </div>
-        ))}
-      </Slider>
+      <Slider {...settings}>{renderGeneralVideosPerCategory()}</Slider>
     </div>
   ) : (
     <div className="o-container-loading-slider">
@@ -106,4 +110,4 @@ const SliderCard = (props) => {
   );
 };
 
-export default SliderCard;
+export default React.memo(SliderCard);

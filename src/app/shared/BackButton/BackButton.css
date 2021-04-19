@@ -1,6 +1,7 @@
 /* Estilos del botón atras */
 .o-back {
   position: absolute;
+  z-index: 1;
 }
 .o-icon-back {
   margin-top: 1.8rem;

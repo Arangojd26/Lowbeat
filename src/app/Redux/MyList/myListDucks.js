@@ -12,7 +12,7 @@ const dataInicial = {
 };
 
 // types
-const LOADING = "LOADING";
+const LOADING_VIDEOS = "LOADING_VIDEOS";
 const ADD_VIDEO_SUCCESS = "ADD_VIDEO_SUCCESS";
 const DELETE_VIDEO_SUCCESS = "DELETE_VIDEO_SUCCESS";
 const GET_VIDEOS_LIST_SUCCESS = "GET_VIDEOS_LIST_SUCCESS";
@@ -21,7 +21,7 @@ const ALERT_ADD = "ALERT_ADD";
 // reducer
 export default function myListReducer(state = dataInicial, action) {
   switch (action.type) {
-    case LOADING:
+    case LOADING_VIDEOS:
       return {
         ...state,
         loading: action.payload.loading,
@@ -65,7 +65,7 @@ export const loadingVideoListaAccion = (estado) => async (dispatch, getState) =>
     stateMenu = true;
   }
   dispatch({
-    type: LOADING,
+    type: LOADING_VIDEOS,
     payload: {
       loading: stateMenu,
       currentMenu: estado,
