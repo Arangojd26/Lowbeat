@@ -19,11 +19,12 @@ const Sidebar = (props) => {
   const [hoverExitText, setHoverExitText] = React.useState(
     "o-title-exit o-font-regular"
   );
+
   const [hoverExitIcon, setHoverExitIcon] = React.useState("o-icon-exit");
 
   React.useEffect(() => {
-    setStyleNav({ ...styleNav, opacity: opacity });
-  }, [opacity]);
+    setStyleNav((prevState) => ({ ...prevState, opacity: opacity }));
+  }, [opacity, setStyleNav]);
 
   const closeSideBar = () => {
     setOpacity(0);

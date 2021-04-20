@@ -54,10 +54,10 @@ function App() {
         <Route component={Login} path="/login" exact />
         <SidebarProvider>
           <PrivateRoute component={Home} path="/" exact />
-          <PrivateRoute component={Calm} path="/calma" exact />
-          <PrivateRoute component={Salud} path="/salud" exact />
-          <PrivateRoute component={Positivismo} path="/positivismo" exact />
-          <PrivateRoute component={Descanso} path="/descanso" exact />
+          <Route component={Calm} path="/calma" exact />
+          <Route component={Salud} path="/salud" exact />
+          <Route component={Positivismo} path="/positivismo" exact />
+          <Route component={Descanso} path="/descanso" exact />
           <Route component={MyList} path="/listas" exact />
         </SidebarProvider>
       </Switch>
