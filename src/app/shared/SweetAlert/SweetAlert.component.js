@@ -11,11 +11,11 @@ const SweetAlert = (props) => {
     // const alertExist = useSelector(store => store.myList.showAlertExist)
     const typeAlert = useSelector(store => store.myList.typeAlert)
 
-    React.useEffect(() => {
+    // React.useEffect(() => {
         
-        console.log(typeAlert)
+    //     console.log(typeAlert)
 
-    }, [typeAlert])
+    // }, [typeAlert])
     
     return (
         <div 

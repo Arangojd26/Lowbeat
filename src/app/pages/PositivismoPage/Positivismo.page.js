@@ -7,27 +7,31 @@ import imageCategoryPositivimso from "../../../assets/images/positivismoBG.jpg";
 import "./Positivismo.css";
 import ContainerCategory from "../../shared/ContainerCategory/ContainerCategory.component";
 import SliderCard from "../../components/Category/SliderCard/SliderCard.component";
+import { batch, useDispatch } from "react-redux";
+import { obtenerVideosAccion } from "../../Redux/Multimedia/multimediaDucks";
 
 const Positivismo = () => {
-  const [hideSidebar, setHideBar] = React.useState(true);
-  const [opacity, setOpacity] = React.useState(0);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    function fetchVideosCategory() {
+      batch(() => {
+        dispatch(obtenerVideosAccion("positivismo-videos"));
+      });
+    }
+    fetchVideosCategory();
+  }, [dispatch]);
 
   return (
     <>
-      <NavbarComponent setOpacity={setOpacity} setHideBar={setHideBar} />
-      <SidebarComponent
-        opacity={opacity}
-        setOpacity={setOpacity}
-        hideSidebar={hideSidebar}
-        setHideBar={setHideBar}
-      />
-
+      <NavbarComponent />
+      <SidebarComponent />
       <SweetAlert />
       <BackButtonComponent />
       <ContainerCategory imgCategory={imageCategoryPositivimso}>
         <div className="o-title-category-carousel">Positivismo</div>
         <div className="o-container-carousel">
-          <SliderCard typeCard={"video"} category={"positivismo-videos"} />
+          <SliderCard typeCard={"video"} />
         </div>
       </ContainerCategory>
     </>

@@ -10,63 +10,24 @@ import { SidebarContext } from "../../context/SidebarProvider";
 import "./Sidebar.css";
 
 const Sidebar = (props) => {
-
   const dispatch = useDispatch();
 
   const { hideSidebar, setHideBar } = React.useContext(SidebarContext);
   const { opacity, setOpacity } = React.useContext(SidebarContext);
+  const { styleNav, setStyleNav } = React.useContext(SidebarContext);
 
   const [hoverExitText, setHoverExitText] = React.useState(
     "o-title-exit o-font-regular"
   );
-
   const [hoverExitIcon, setHoverExitIcon] = React.useState("o-icon-exit");
 
-  const [styleNav, setStyleNav] = React.useState({
-    position: "absolute",
-    top: 0,
-    left: 0,
-    background:
-      "linear-gradient(1deg, rgba(98,73,133,1) 0%, rgba(180,128,251,1) 94%)",
-    width: "16rem",
-    height: "100vh",
-    zIndex: 10,
-    borderRadius: "0px 45px 45px 0px",
-    opacity: 0,
-    transition: "opacity 0.5s",
-  });
-
   React.useEffect(() => {
-    setStyleNav({
-      position: "absolute",
-      top: 0,
-      left: 0,
-      background:
-        "linear-gradient(1deg, rgba(98,73,133,1) 0%, rgba(180,128,251,1) 94%)",
-      width: "16rem",
-      height: "100vh",
-      zIndex: 10,
-      borderRadius: "0px 45px 45px 0px",
-      opacity: opacity,
-      transition: "opacity 0.5s",
-    });
+    setStyleNav({ ...styleNav, opacity: opacity });
   }, [opacity]);
 
   const closeSideBar = () => {
     setOpacity(0);
-    setStyleNav({
-      position: "absolute",
-      top: 0,
-      left: 0,
-      background:
-        "linear-gradient(1deg, rgba(98,73,133,1) 0%, rgba(180,128,251,1) 94%)",
-      width: "16rem",
-      height: "100vh",
-      zIndex: 10,
-      borderRadius: "0px 45px 45px 0px",
-      opacity: 0,
-      transition: "opacity 0.5s",
-    });
+    setStyleNav({ ...styleNav, opacity: 0 });
 
     setTimeout(() => {
       setHideBar(true);
@@ -74,7 +35,6 @@ const Sidebar = (props) => {
   };
 
   const goRouteNav = (route) => {
-
     setHideBar(true);
     switch (route) {
       case "calma":
