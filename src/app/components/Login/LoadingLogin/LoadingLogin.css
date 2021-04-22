@@ -5,13 +5,13 @@
     opacity: 1;
     /* position: relative; */
     /* right: 0; */
-    margin-right: 2rem;
-    margin-top: -0.5rem;
+    /* margin-right: 0rem; */
+    /* margin-top: -0rem; */
 }
 .loader {
     /* position: relative; */
     /* right: 0; */
-    margin-left: 6.5rem;
+    margin-left: 6.2rem;
     margin-top: -0.8rem;
     
     font-size: 5px;

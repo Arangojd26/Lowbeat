@@ -14,7 +14,6 @@ import Positivismo from "./app/pages/PositivismoPage/Positivismo.page";
 import Descanso from "./app/pages/DescansoPage/Descanso.page";
 import MyList from "./app/pages/ListsPage/MyList.page";
 import SidebarProvider from "./app/context/SidebarProvider";
-
 import { auth } from "./firebase";
 import Loading from "./app/pages/LoadingPage/Loading.page";
 
@@ -24,7 +23,7 @@ function App() {
   React.useEffect(() => {
     const fetchUser = () => {
       auth.onAuthStateChanged((user) => {
-        console.log(user);
+        // console.log(user);
         if (user) {
           setFirebaseUser(user);
         } else {
@@ -54,11 +53,11 @@ function App() {
         <Route component={Login} path="/login" exact />
         <SidebarProvider>
           <PrivateRoute component={Home} path="/" exact />
-          <Route component={Calm} path="/calma" exact />
-          <Route component={Salud} path="/salud" exact />
-          <Route component={Positivismo} path="/positivismo" exact />
-          <Route component={Descanso} path="/descanso" exact />
-          <Route component={MyList} path="/listas" exact />
+          <PrivateRoute component={Calm} path="/calma" exact />
+          <PrivateRoute component={Salud} path="/salud" exact />
+          <PrivateRoute component={Positivismo} path="/positivismo" exact />
+          <PrivateRoute component={Descanso} path="/descanso" exact />
+          <PrivateRoute component={MyList} path="/listas" exact />
         </SidebarProvider>
       </Switch>
     </Router>

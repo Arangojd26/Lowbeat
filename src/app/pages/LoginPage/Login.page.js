@@ -18,7 +18,9 @@ const Login = () => {
           </div>
         </div>
         <div className="col-12 col-md-6 col-lg-5 col-xl-4 o-fondo-card">
-          <LoadingLogin openLoading={openLoading} />
+          <div className="o-container-loading-login">
+            <LoadingLogin openLoading={openLoading} />
+          </div>
 
           <div className="o-container-card-login pt-md-2">
             <CardLogin setOpenLoading={setOpenLoading} />

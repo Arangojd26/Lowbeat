@@ -5,8 +5,8 @@ const ButtonLogin = (props) => {
     return (
         <div className="text-center">
             <button
-                className="btn btn-iniciar-sesion"
-                type="input"
+                className="o-btn-iniciar-sesion"
+                type="submit"
                 // onClick={(e) => signIn(e)}
                 disabled={props.loading}
             >

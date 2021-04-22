@@ -31,7 +31,7 @@ const Positivismo = () => {
       <ContainerCategory imgCategory={imageCategoryPositivimso}>
         <div className="o-title-category-carousel">Positivismo</div>
         <div className="o-container-carousel">
-          <SliderCard typeCard={"video"} />
+          <SliderCard typeCard={"video"} category={'positivismo-videos'} />
         </div>
       </ContainerCategory>
     </>

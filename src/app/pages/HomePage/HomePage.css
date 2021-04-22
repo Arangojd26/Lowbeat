@@ -34,30 +34,50 @@
   overflow-x: hidden;
   padding-bottom: 6rem;
 }
-/* .o-content-cards-menu::-webkit-scrollbar {
-  width: 8px;
-  height: 5px !important;
-} */
+.o-content-cards-menu::-webkit-scrollbar {
+  width: 5px;
+  height: 0;
+  background: #ffffff00;
+}
 
-/* .o-content-cards-menu::-webkit-scrollbar-thumb {
-  background: #ccc;
+.o-content-cards-menu::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    1deg,
+    rgba(98, 73, 133, 1) 0%,
+    rgba(180, 128, 251, 1) 94%
+  );
   border-radius: 4px;
 }
 
 .o-content-cards-menu::-webkit-scrollbar-thumb:hover {
-  background: #b3b3b3;
+  background: linear-gradient(
+    1deg,
+    rgb(82, 55, 119) 0%,
+    rgb(170, 109, 255) 94%
+  );
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .o-content-cards-menu::-webkit-scrollbar-thumb:active {
-  background-color: #999999;
-} */
+  background: linear-gradient(
+    1deg,
+    rgb(82, 55, 119) 0%,
+    rgb(170, 109, 255) 94%
+  );
+}
+
 @media only screen and (max-width: 1200px) {
   .o-container-cards-menu {
     align-items: flex-start;
   }
   .o-content-cards-menu {
     justify-content: flex-start;
-    
+  }
+}
+@media only screen and (max-width: 767px) {
+  .o-content-cards-menu::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }

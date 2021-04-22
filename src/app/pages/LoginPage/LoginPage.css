@@ -59,6 +59,21 @@
   /* background-color: rgb(240, 206, 12); */
   width: 100%;
 }
+.o-container-loading-login {
+  position: absolute;
+  /* background-color: aquamarine; */
+  width: 100%;
+  height: 3rem;
+  top: 0;
+  /* right: 0; */
+  /* margin-bottom: 2rem; */
+  /* height: 12rem; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 1.3rem;
+  /* color: aliceblue; */
+}
 
 @media only screen and (max-width: 767px) {
   .o-fondo-card {

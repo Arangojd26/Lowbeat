@@ -1,14 +1,14 @@
 import React from 'react'
-import {Modal, ModalBody, ModalFooter} from 'reactstrap';
+import {Modal, ModalBody, ModalFooter, Button} from 'reactstrap';
 import './ModalLogin.css'
 import IconCheckBig from '../../../../assets/icons/checkBig.svg'
-// import { useDispatch } from 'react-redux'
-// import { ingresarPorRegistroAccion } from '../../../Redux/Login/usuarioDucks'
+import { useDispatch } from 'react-redux'
+import { ingresarPorRegistroAccion } from '../../../Redux/Login/usuarioDucks'
 import { withRouter } from "react-router-dom";
 
 const ModalLogin = (props) => {
 
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     const [modal, setModal] = React.useState(false);
 
@@ -18,12 +18,12 @@ const ModalLogin = (props) => {
 
     }, [props.open])
 
-    // const goHome = () => {
+    const goHome = () => {
 
-    //     dispatch(ingresarPorRegistroAccion())
-    //     setModal(false)
-    //     props.history.push("/");
-    // }
+        dispatch(ingresarPorRegistroAccion())
+        setModal(false)
+        props.history.push("/");
+    }
 
     return (
         <Modal isOpen={modal} className="modal-dialog modal-dialog-centered modal-lg modal-login">
@@ -34,7 +34,7 @@ const ModalLogin = (props) => {
                 </div>
             </ModalBody>
             <ModalFooter className="modal-footer row justify-content-center">
-                {/* <Button className="btn-modal-login" onClick={() => goHome()}>Aceptar</Button> */}
+                <Button className="btn-modal-login" onClick={() => goHome()}>Aceptar</Button>
             </ModalFooter>
         </Modal>
     )

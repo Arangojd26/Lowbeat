@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import iconPassHide from "../../../../assets/icons/passHide.svg";
-import iconPassShow from "../../../../assets/icons/passShow.svg";
+// import iconPassHide from "../../../../assets/icons/passHide.svg";
+// import iconPassShow from "../../../../assets/icons/passShow.svg";
 import "./CardLogin.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,27 +14,13 @@ import ButtonLogin from "../ButtonLogin/ButtonLogin.component";
 import ButtonGoogle from "../ButtonGoogle/ButtonGoogle.component";
 import SwitchLogin from "../SwitchLogin/SwitchLogin.component";
 import TitleLogin from "../TitleLogin/TitleLogin.component";
+import InputLogin from "../InputLogin/InputLogin.component";
 
 const CardLogin = (props) => {
   const dispatch = useDispatch();
 
   const loading = useSelector((store) => store.usuario.loading);
   const activo = useSelector((store) => store.usuario.activo);
-
-  const [labelEmail, setLabelEmail] = React.useState(false);
-  const [labelPass, setLabelPass] = React.useState(false);
-  const [LabelPassConfirm, setLabelPassConfirm] = React.useState(false);
-  const [labelNombre, setLabelNombre] = React.useState(false);
-  const [verIconViewPass, setVerIconViewPass] = React.useState(
-    "iconpass d-none"
-  );
-  const [verIconViewPassConfirm, setVerIconViewPassConfirm] = React.useState(
-    "iconpass d-none"
-  );
-  const [changeIconPass, setChangeIconPass] = React.useState(false);
-  const [changeIconPassConfirm, setChangeIconPassConfirm] = React.useState(
-    false
-  );
 
   const [nombre, setNombre] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -56,51 +42,7 @@ const CardLogin = (props) => {
     if (activo) {
       props.history.push("/");
     }
-  });
-
-  const controlAnimacionLabelNombre = (val) =>
-    val === "" ? setLabelNombre(false) : setLabelNombre(true);
-  const controlAnimacionLabelEmail = (val) =>
-    val === "" ? setLabelEmail(false) : setLabelEmail(true);
-
-  const controlAnimacionLabelPass = (val) => {
-    if (val === "") {
-      setLabelPass(false);
-      setVerIconViewPass("iconpass d-none");
-    } else {
-      setLabelPass(true);
-    }
-  };
-  const controlAnimacionLabelPassRegister = (val) => {
-    setEsCheck(!esCheck);
-    if (val === "") {
-      setLabelPass(false);
-      setVerIconViewPass("iconpass d-none");
-    } else {
-      setLabelPass(true);
-    }
-  };
-  const controlAnimacionLabelPassConfirm = (val) => {
-    if (val === "") {
-      setLabelPassConfirm(false);
-      setVerIconViewPassConfirm("iconpass d-none");
-    } else {
-      setLabelPassConfirm(true);
-    }
-  };
-  const focusPass = (val) => {
-    setLabelPass(true);
-    setVerIconViewPass("iconpass");
-  };
-  const focusPassRegistro = (val) => {
-    setLabelPass(true);
-    setVerIconViewPass("iconpass");
-    setEsCheck(true);
-  };
-  const focusPassConfirm = (val) => {
-    setLabelPassConfirm(true);
-    setVerIconViewPassConfirm("iconpass");
-  };
+  }, [activo, props.history]);
 
   const procesarDatos = (e) => {
     e.preventDefault();
@@ -132,14 +74,12 @@ const CardLogin = (props) => {
     } else {
       set8Caracteres(true);
     }
-
     if (!/^[^A-Z]*[A-Z][^A-Z]*$/.test(pass) && esRegistro) {
       setMayuscula(false);
       contandor++;
     } else {
       setMayuscula(true);
     }
-
     if (!/[0-9]/.test(pass) && esRegistro) {
       setNumero(false);
       contandor++;
@@ -183,7 +123,6 @@ const CardLogin = (props) => {
   const login = React.useCallback(async () => {
     try {
       dispatch(ingresarUsuarioNormalAccion(email, pass));
-      console.log("se activa login");
       props.history.push("/");
       setEmail("");
       setPass("");
@@ -195,6 +134,7 @@ const CardLogin = (props) => {
       }
       if (error.code === "auth/user-not-found") {
         setError("Usuario no registrado");
+        // setModal(true);
       }
       if (error.code === "auth/wrong-password") {
         setError("La contraseña que ingresaste es incorrecta");
@@ -205,13 +145,12 @@ const CardLogin = (props) => {
   const registrar = React.useCallback(async () => {
     try {
       dispatch(registrarUsuarioNormalAccion(nombre, email, pass));
-      console.log("se activa Registro");
+      setModal(true);
       setNombre("");
       setEmail("");
       setPass("");
       setError(null);
       setErrorUser(null);
-      setModal(true);
     } catch (error) {
       console.log(error);
       if (error.code === "auth/invalid-email") {
@@ -239,47 +178,18 @@ const CardLogin = (props) => {
 
           <div className="container-form">
             <form onSubmit={procesarDatos}>
-              {esRegistro ? (
-                <div
-                  className={
-                    labelNombre
-                      ? "input-group pt-4 focused"
-                      : "input-group pt-4"
-                  }
-                >
-                  <label className="form-label" htmlFor="first">
-                    Nombre
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control input-login"
-                    onChange={(e) => setNombre(e.target.value)}
-                    value={nombre}
-                    onClick={() => setLabelNombre(true)}
-                    onBlur={(e) => controlAnimacionLabelNombre(e.target.value)}
-                    onFocus={() => setLabelNombre(true)}
-                    // onKeyUp={(e) => procesarDatos(e)}
-                  />
-                </div>
-              ) : null}
-              <div
-                className={
-                  labelEmail ? "input-group pt-4 focused" : "input-group pt-4"
-                }
-              >
-                <label className="form-label" htmlFor="first">
-                  Correo electrónico
-                </label>
-                <input
-                  type="text"
-                  className="form-control input-login"
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                  onClick={() => setLabelEmail(true)}
-                  onBlur={(e) => controlAnimacionLabelEmail(e.target.value)}
-                  onFocus={() => setLabelEmail(true)}
+              {esRegistro && (
+                <InputLogin
+                  title={"Nombre"}
+                  valueInput={nombre}
+                  setValueInput={setNombre}
                 />
-              </div>
+              )}
+              <InputLogin
+                title={"Correo electrónico"}
+                valueInput={email}
+                setValueInput={setEmail}
+              />
               {errorUser && (
                 <p className="text-danger text-left ml-3 pt-1">
                   <small>{errorUser}</small>
@@ -287,112 +197,32 @@ const CardLogin = (props) => {
               )}
               {esRegistro ? (
                 <>
-                  <div
-                    className={
-                      labelPass
-                        ? "input-group pt-4 focused"
-                        : "input-group pt-4"
-                    }
-                  >
-                    <label className="form-label" htmlFor="last">
-                      Contraseña
-                    </label>
-                    <input
-                      type={changeIconPass ? "text" : "password"}
-                      className="form-control input-login"
-                      onChange={(e) => setPass(e.target.value)}
-                      value={pass}
-                      onClick={() => focusPassRegistro()}
-                      onFocus={() => focusPassRegistro()}
-                      onBlur={(e) =>
-                        controlAnimacionLabelPassRegister(e.target.value)
-                      }
-                      onKeyUp={(e) => procesarDatos(e)}
-                    />
-                    <span className="input-group-append">
-                      <div className="input-group-text bg-transparent">
-                        <img
-                          className={verIconViewPass}
-                          src={changeIconPass ? iconPassShow : iconPassHide}
-                          width="18"
-                          height="18"
-                          alt=""
-                          onClick={() => setChangeIconPass(!changeIconPass)}
-                        />
-                      </div>
-                    </span>
-                  </div>
-                  <div
-                    className={
-                      LabelPassConfirm
-                        ? "input-group pt-4 focused"
-                        : "input-group pt-4"
-                    }
-                  >
-                    <label className="form-label" htmlFor="last">
-                      Confirmar contraseña
-                    </label>
-                    <input
-                      type={changeIconPassConfirm ? "text" : "password"}
-                      className="form-control input-login"
-                      onChange={(e) => setPassConfirm(e.target.value)}
-                      value={passConfirm}
-                      onClick={() => focusPassConfirm()}
-                      onFocus={() => focusPassConfirm()}
-                      onBlur={(e) =>
-                        controlAnimacionLabelPassConfirm(e.target.value)
-                      }
-                      onKeyUp={(e) => procesarDatos(e)}
-                    />
-                    <span className="input-group-append">
-                      <div className="input-group-text bg-transparent">
-                        <img
-                          className={verIconViewPassConfirm}
-                          src={
-                            changeIconPassConfirm ? iconPassShow : iconPassHide
-                          }
-                          width="18"
-                          height="18"
-                          alt=""
-                          onClick={() =>
-                            setChangeIconPassConfirm(!changeIconPassConfirm)
-                          }
-                        />
-                      </div>
-                    </span>
-                  </div>
+                  <InputLogin
+                    title={"Contraseña registro"}
+                    valueInput={pass}
+                    setValueInput={setPass}
+                    esCheck={esCheck}
+                    setEsCheck={setEsCheck}
+                    procesarDatos={procesarDatos}
+                  />
+
+                  <InputLogin
+                    title={"Confirmar contraseña"}
+                    valueInput={passConfirm}
+                    setValueInput={setPassConfirm}
+                    esCheck={esCheck}
+                    setEsCheck={setEsCheck}
+                    procesarDatos={procesarDatos}
+                  />
                 </>
               ) : (
-                <div
-                  className={
-                    labelPass ? "input-group pt-4 focused" : "input-group pt-4"
-                  }
-                >
-                  <label className="form-label" htmlFor="last">
-                    Contraseña
-                  </label>
-                  <input
-                    type={changeIconPass ? "text" : "password"}
-                    className="form-control input-login"
-                    onChange={(e) => setPass(e.target.value)}
-                    value={pass}
-                    onClick={() => focusPass()}
-                    onFocus={() => focusPass()}
-                    onBlur={(e) => controlAnimacionLabelPass(e.target.value)}
-                  />
-                  <span className="input-group-append">
-                    <div className="input-group-text bg-transparent">
-                      <img
-                        className={verIconViewPass}
-                        src={changeIconPass ? iconPassShow : iconPassHide}
-                        width="18"
-                        height="18"
-                        alt=""
-                        onClick={() => setChangeIconPass(!changeIconPass)}
-                      />
-                    </div>
-                  </span>
-                </div>
+                <InputLogin
+                  title={"Contraseña login"}
+                  valueInput={pass}
+                  setValueInput={setPass}
+                  esCheck={esCheck}
+                  setEsCheck={setEsCheck}
+                />
               )}
               {error && (
                 <p className="text-danger text-left ml-3 pt-2">

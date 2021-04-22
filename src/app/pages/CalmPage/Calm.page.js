@@ -30,7 +30,7 @@ const Calm = () => {
       <ContainerCategory imgCategory={imageCategoryCalm}>
         <div className="o-title-category-carousel">Calma</div>
         <div className="o-container-carousel">
-          <SliderCard typeCard={"video"} />
+          <SliderCard typeCard={"video"} category={'calma-videos'} />
         </div>
       </ContainerCategory>
     </>

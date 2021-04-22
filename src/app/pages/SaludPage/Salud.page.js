@@ -31,7 +31,7 @@ const Salud = () => {
       <ContainerCategory imgCategory={imageCategorySalud}>
         <div className="o-title-category-carousel">Salud</div>
         <div className="o-container-carousel">
-          <SliderCard typeCard={"video"} />
+          <SliderCard typeCard={"video"} category={'salud-videos'} />
         </div>
       </ContainerCategory>
     </>

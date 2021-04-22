@@ -34,12 +34,20 @@
 }
 
 .o-container-mylist::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
+  background: linear-gradient(
+    1deg,
+    rgb(82, 55, 119) 0%,
+    rgb(170, 109, 255) 94%
+  );
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .o-container-mylist::-webkit-scrollbar-thumb:active {
-  background-color: #ffffff;
+  background-color: linear-gradient(
+    1deg,
+    rgb(82, 55, 119) 0%,
+    rgb(170, 109, 255) 94%
+  );
 }
 .o-container-loading-mylist {
   /* background-color: aquamarine; */
