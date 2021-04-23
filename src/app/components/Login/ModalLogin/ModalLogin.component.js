@@ -2,7 +2,7 @@ import React from 'react'
 import {Modal, ModalBody, ModalFooter, Button} from 'reactstrap';
 import './ModalLogin.css'
 import IconCheckBig from '../../../../assets/icons/checkBig.svg'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ingresarPorRegistroAccion } from '../../../Redux/Login/usuarioDucks'
 import { withRouter } from "react-router-dom";
 
@@ -10,18 +10,20 @@ const ModalLogin = (props) => {
 
     const dispatch = useDispatch()
 
-    const [modal, setModal] = React.useState(false);
+    const modal = useSelector((store) => store.usuario.modal);
 
-    React.useEffect(() => {
+    // const [modal, setModal] = React.useState(false);
+
+    // React.useEffect(() => {
         
-        setModal(props.open)
+    //     setModal(props.open)
 
-    }, [props.open])
+    // }, [props.open])
 
     const goHome = () => {
 
         dispatch(ingresarPorRegistroAccion())
-        setModal(false)
+        // setModal(false)
         props.history.push("/");
     }
 

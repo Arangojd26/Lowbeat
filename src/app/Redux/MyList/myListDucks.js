@@ -84,8 +84,8 @@ export const agregarVideoAccion = (urlVideo, category) => async (dispatch) => {
   let dataFiltered = res.filter(
     (datosFB) => datosFB.url === urlVideo && infoUser.email === datosFB.email
   );
-  console.log("category");
-  console.log(category);
+  // console.log("category");
+  // console.log(category);
   // console.log('arreglo comprobar video')
   // console.log(dataFiltered)
 
@@ -145,6 +145,9 @@ export const agregarVideoAccion = (urlVideo, category) => async (dispatch) => {
 };
 
 export const obtenerVideoListaAccion = (category) => async (dispatch) => {
+
+  const infoUser = JSON.parse(localStorage.getItem("usuario"));
+
   if (localStorage.getItem(category)) {
     console.log("existe");
     dispatch({
@@ -157,8 +160,6 @@ export const obtenerVideoListaAccion = (category) => async (dispatch) => {
   } else {
     console.log("no existe");
     try {
-      const infoUser = JSON.parse(localStorage.getItem("usuario"));
-
       const data = await db.collection("lista-usuario-videos").get();
       const res = data.docs.map((doc) => ({
         id: doc.id,
@@ -170,8 +171,8 @@ export const obtenerVideoListaAccion = (category) => async (dispatch) => {
           infoUser.email === datosFB.email && category === datosFB.category
       );
 
-      console.log("data videos");
-      console.log(dataFiltered);
+      // console.log("data videos");
+      // console.log(dataFiltered);
 
       dispatch({
         type: GET_VIDEOS_LIST_SUCCESS,

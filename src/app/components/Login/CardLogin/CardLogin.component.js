@@ -21,6 +21,9 @@ const CardLogin = (props) => {
 
   const loading = useSelector((store) => store.usuario.loading);
   const activo = useSelector((store) => store.usuario.activo);
+  const errorMessage = useSelector((store) => store.usuario.errorMessage);
+
+  const { setOpenLoading } = props;
 
   const [nombre, setNombre] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -35,7 +38,6 @@ const CardLogin = (props) => {
   const [modal, setModal] = React.useState(false);
 
   const [esRegistro, setEsRegistro] = React.useState(false);
-  const [error, setError] = React.useState(null);
   const [ingresar, setIngresar] = React.useState(false);
 
   React.useEffect(() => {
@@ -49,11 +51,11 @@ const CardLogin = (props) => {
     let contandor = 0;
 
     if (!nombre.trim() && esRegistro) {
-      setError("Ingrese nombre");
+      setErrorUser("Ingrese nombre");
       contandor++;
     }
     if (!email.trim()) {
-      setError("Ingrese email");
+      setErrorUser("Ingrese email");
       contandor++;
     }
     if (!/\S+@\S+\.\S+/.test(email)) {
@@ -65,7 +67,7 @@ const CardLogin = (props) => {
       contandor++;
     }
     if (!pass.trim()) {
-      setError("Ingrese Constraseña");
+      setErrorUser("Ingrese Constraseña");
       contandor++;
     }
     if (pass.length < 8 && esRegistro) {
@@ -95,14 +97,13 @@ const CardLogin = (props) => {
     }
 
     if (pass !== passConfirm && esRegistro) {
-      setError("Las contraseñas no coinciden");
+      setErrorUser("Las contraseñas no coinciden");
       contandor++;
     }
 
     if (contandor > 0) {
       return;
     } else {
-      setError(null);
       setErrorUser(null);
       console.log("Correcto...");
       setIngresar(true);
@@ -121,46 +122,22 @@ const CardLogin = (props) => {
   };
 
   const login = React.useCallback(async () => {
-    try {
-      dispatch(ingresarUsuarioNormalAccion(email, pass));
-      props.history.push("/");
-      setEmail("");
-      setPass("");
-      setError(null);
-    } catch (error) {
-      console.log(error);
-      if (error.code === "auth/invalid-email") {
-        setError("Email no válido");
-      }
-      if (error.code === "auth/user-not-found") {
-        setError("Usuario no registrado");
-        // setModal(true);
-      }
-      if (error.code === "auth/wrong-password") {
-        setError("La contraseña que ingresaste es incorrecta");
-      }
-    }
-  }, [email, pass, dispatch, props.history]);
+    dispatch(ingresarUsuarioNormalAccion(email, pass));
+    setOpenLoading(true);
+    setEmail("");
+    setPass("");
+  }, [email, pass, dispatch, setOpenLoading]);
 
   const registrar = React.useCallback(async () => {
-    try {
-      dispatch(registrarUsuarioNormalAccion(nombre, email, pass));
-      setModal(true);
-      setNombre("");
-      setEmail("");
-      setPass("");
-      setError(null);
-      setErrorUser(null);
-    } catch (error) {
-      console.log(error);
-      if (error.code === "auth/invalid-email") {
-        setError("Email no válido");
-      }
-      if (error.code === "auth/email-already-in-use") {
-        setError("El email ya está en uso");
-      }
-    }
-  }, [nombre, email, pass, dispatch]);
+    dispatch(registrarUsuarioNormalAccion(nombre, email, pass));
+    setModal(true);
+    setOpenLoading(true);
+    setNombre("");
+    setEmail("");
+    setPass("");
+    setPassConfirm("");
+    setErrorUser(null);
+  }, [nombre, email, pass, dispatch, setOpenLoading]);
 
   return (
     <>
@@ -190,11 +167,7 @@ const CardLogin = (props) => {
                 valueInput={email}
                 setValueInput={setEmail}
               />
-              {errorUser && (
-                <p className="text-danger text-left ml-3 pt-1">
-                  <small>{errorUser}</small>
-                </p>
-              )}
+
               {esRegistro ? (
                 <>
                   <InputLogin
@@ -224,9 +197,14 @@ const CardLogin = (props) => {
                   setEsCheck={setEsCheck}
                 />
               )}
-              {error && (
+              {errorMessage && (
                 <p className="text-danger text-left ml-3 pt-2">
-                  <small>{error}</small>
+                  <small>{errorMessage}</small>
+                </p>
+              )}
+              {errorUser && (
+                <p className="text-danger text-left ml-3 pt-1">
+                  <small>{errorUser}</small>
                 </p>
               )}
               <SwitchLogin

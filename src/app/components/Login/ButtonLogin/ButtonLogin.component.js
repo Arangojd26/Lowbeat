@@ -8,7 +8,7 @@ const ButtonLogin = (props) => {
                 className="o-btn-iniciar-sesion"
                 type="submit"
                 // onClick={(e) => signIn(e)}
-                disabled={props.loading}
+                // disabled={props.loading}
             >
                 {props.esRegistro ? "Registrarse" : "Iniciar sesión"}
             </button>
