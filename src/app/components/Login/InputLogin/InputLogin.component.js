@@ -3,8 +3,14 @@ import iconPassHide from "../../../../assets/icons/passHide.svg";
 import iconPassShow from "../../../../assets/icons/passShow.svg";
 
 const InputLogin = (props) => {
-
-  const { title, valueInput, setValueInput, procesarDatos, esCheck, setEsCheck } = props;
+  const {
+    title,
+    valueInput,
+    setValueInput,
+    procesarDatos,
+    esCheck,
+    setEsCheck,
+  } = props;
 
   const [labelEmail, setLabelEmail] = React.useState(false);
   const [labelPass, setLabelPass] = React.useState(false);
@@ -21,7 +27,6 @@ const InputLogin = (props) => {
     false
   );
 
-
   const controlAnimacionLabelNombre = (val) =>
     val === "" ? setLabelNombre(false) : setLabelNombre(true);
   const controlAnimacionLabelEmail = (val) =>
@@ -30,7 +35,7 @@ const InputLogin = (props) => {
   const controlAnimacionLabelPass = (val) => {
     if (val === "") {
       setLabelPass(false);
-      setVerIconViewPass("iconpass d-none");
+      setVerIconViewPass("d-none");
     } else {
       setLabelPass(true);
     }
@@ -39,7 +44,7 @@ const InputLogin = (props) => {
     setEsCheck(!esCheck);
     if (val === "") {
       setLabelPass(false);
-      setVerIconViewPass("iconpass d-none");
+      setVerIconViewPass("d-none");
     } else {
       setLabelPass(true);
     }
@@ -47,44 +52,52 @@ const InputLogin = (props) => {
   const controlAnimacionLabelPassConfirm = (val) => {
     if (val === "") {
       setLabelPassConfirm(false);
-      setVerIconViewPassConfirm("iconpass d-none");
+      setVerIconViewPassConfirm("d-none");
     } else {
       setLabelPassConfirm(true);
     }
   };
-  const focusPass = (val) => {
+  const focusPass = () => {
     setLabelPass(true);
     setVerIconViewPass("iconpass");
   };
-  const focusPassRegistro = (val) => {
+  const focusPassRegistro = () => {
     setLabelPass(true);
     setVerIconViewPass("iconpass");
     setEsCheck(true);
   };
-  const focusPassConfirm = (val) => {
+  const focusPassConfirm = () => {
     setLabelPassConfirm(true);
     setVerIconViewPassConfirm("iconpass");
   };
 
-  const renderIconPassword = (classNameIcon, conditionIcon, setChangeIcon, changeIcon) => {
-    if(title.includes("Contraseña")) {
-        return <span className="input-group-append">
-        <div className="input-group-text bg-transparent">
-          <img
-            className={classNameIcon}
-            src={
-              conditionIcon ? iconPassShow : iconPassHide
-            }
-            width="18"
-            height="18"
-            alt=""
-            onClick={() => setChangeIcon(!changeIcon)}
-          />
-        </div>
-      </span>
+  const renderIconPassword = (
+    classNameIcon,
+    conditionIcon,
+    setChangeIcon,
+    changeIcon
+  ) => {
+    if (title.includes("Contraseña")) {
+      return (
+        <span className="input-group-append">
+          <div className="input-group-text bg-transparent">
+            <img
+              className={classNameIcon}
+              src={conditionIcon ? iconPassShow : iconPassHide}
+              width="18"
+              height="18"
+              alt="viewa"
+              onClick={() => {
+                setChangeIcon(!changeIcon)
+                setLabelPass(true)
+              }}
+            />
+          </div>
+        </span>
+      );
     }
-    return null
-}
+    return null;
+  };
 
   const renderInputLogin = () => {
     let type;
@@ -166,30 +179,37 @@ const InputLogin = (props) => {
     }
 
     return (
-        <>
-          <div className={labelFocus ? "input-group pt-4 focused" : "input-group pt-4"}>
-            <label className="form-label" htmlFor="last">
-              {title}
-            </label>
-            <input
-              type={type}
-              className="form-control input-login"
-              onChange={onChange}
-              value={value}
-              onClick={onClick}
-              onBlur={onBlur}
-              onFocus={onFocus}
-              onKeyUp={onKeyUp}
-            />
-            {renderIconPassword(classNameIcon, conditionIcon, setChangeIcon, changeIcon)}
-          </div>
-        </>
-      );
+      <>
+        <div
+          className={
+            labelFocus ? "input-group pt-4 focused" : "input-group pt-4"
+          }
+        >
+          <label className="form-label" htmlFor="last">
+            {title}
+          </label>
+          <input
+            type={type}
+            className="form-control input-login"
+            onChange={onChange}
+            value={value}
+            onClick={onClick}
+            onBlur={onBlur}
+            onFocus={onFocus}
+            onKeyUp={onKeyUp}
+          />
+          {renderIconPassword(
+            classNameIcon,
+            conditionIcon,
+            setChangeIcon,
+            changeIcon
+          )}
+        </div>
+      </>
+    );
   };
 
   return renderInputLogin();
-
-  
 };
 
 export default InputLogin;
