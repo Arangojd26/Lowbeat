@@ -14,7 +14,7 @@ const SweetAlert = () => {
   }, [typeAlert]);
 
   const showSweetAlert = (state) =>
-    state ? { marginRight: "0rem" } : { marginRight: "-25rem" };
+    state ? { marginRight: "0rem" } : { marginRight: "-22rem" };
 
   const renderSweetAlert = () => {
     let className = "o-sweet-alert";

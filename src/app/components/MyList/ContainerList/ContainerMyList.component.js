@@ -25,7 +25,7 @@ const ContainerMyList = ({ category }) => {
         key={item.url}
         className="col-md-5 col-lg-4 col-xl-3 offset-md-1 offset-lg-0"
       >
-        <div key={item.url} className="mr-2 mb-2">
+        <div key={item.url} className="mr-2 mb-4">
           <CardVideo
             category={category}
             cardList={true}
@@ -38,7 +38,7 @@ const ContainerMyList = ({ category }) => {
   };
 
   return !loadingVideos ? (
-    <div className="o-container-mylist px-2 px-sm-4 px-md-5 container-fluid">
+    <div className="o-container-mylist px-2 px-sm-4 px-md-5">
       <div className="row justify-content-start">{renderVideosList()}</div>
     </div>
   ) : (

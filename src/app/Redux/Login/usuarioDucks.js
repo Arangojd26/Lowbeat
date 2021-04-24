@@ -31,7 +31,7 @@ export default function usuarioReducer(state = dataInicial, action) {
         user: action.payload.user,
       };
     case USER_EXITO_REGISTER:
-      return { ...state, activo: true };
+      return { ...state, activo: true, modal: false };
     case CERRAR_SESION:
       return { ...dataInicial };
     default:

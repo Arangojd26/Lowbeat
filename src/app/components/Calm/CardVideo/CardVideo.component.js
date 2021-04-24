@@ -7,9 +7,9 @@ import {
   agregarVideoAccion,
   eliminarVideoListaAccion,
 } from "../../../Redux/MyList/myListDucks";
+import GenericButton from "../../../shared/GenericButton/GenericButton.component";
 
 const CardVideo = (props) => {
-  
   const dispatch = useDispatch();
 
   const addVideo = () => {
@@ -37,19 +37,9 @@ const CardVideo = (props) => {
         <div className="o-container-buttons-card">
           <ModalVideo url={props.url} buttonLabel={"Abrir"} />
           {props.cardList ? (
-            <button
-              className="btn btn-info o-btn-video o-font-medium ml-2"
-              onClick={() => deleteVideo()}
-            >
-              Quitar
-            </button>
+            <GenericButton title={"Eliminar"} clickButton={deleteVideo} />
           ) : (
-            <button
-              className="btn btn-info o-btn-video o-font-medium ml-2 mr-2"
-              onClick={() => addVideo()}
-            >
-              Agregar
-            </button>
+            <GenericButton title={"Agregar"} clickButton={addVideo} />
           )}
         </div>
       </div>

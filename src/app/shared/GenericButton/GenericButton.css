@@ -1,0 +1,23 @@
+.o-btn-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f5f5f5;
+  color: #aa8e73;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 5.5rem;
+  height: 2.4rem;
+  box-shadow: 5px 5px 9px #c1c1c1, -5px -5px 9px #ffffff;
+  outline: none !important;
+}
+
+.o-btn-video:focus {
+  outline: 0;
+  outline: none;
+}
+.o-btn-video:hover {
+  background-color: #aa8e73;
+  color: #ffffff;
+}

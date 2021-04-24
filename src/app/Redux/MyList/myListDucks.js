@@ -5,7 +5,6 @@ const dataInicial = {
   loading: false,
   array: [],
   listVideos: [],
-  listAudios: [],
   showAlertAdd: false,
   typeAlert: "",
   currentMenu: "Calma",

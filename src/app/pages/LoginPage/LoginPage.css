@@ -20,7 +20,7 @@
 }
 /* Estilos del fondo en el card del login */
 .o-fondo-card {
-  /* background: #be2121; */
+  background: #ffffff;
   height: 100vh;
   width: 100%;
   display: flex;
