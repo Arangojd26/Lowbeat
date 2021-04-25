@@ -19,37 +19,35 @@
 /* Estilos del contenedor salir */
 .o-container-exit {
   width: 100%;
-  /* margin: 2.2rem; */
-  /* margin-top: 2.3rem; */
   display: flex;
   justify-content: flex-end;
 }
-/* Estilos del texto salir */
-.o-title-exit {
+
+/* .o-title-exit {
   color: #ffffff;
   font-size: 14px;
   margin-top: 0.2rem;
   margin-right: 0.8rem;
 }
-/* Estilos del hover salir */
+
 .o-title-exit-red {
   color: #f53939;
   font-size: 14px;
   margin-top: 0.2rem;
   margin-right: 0.8rem;
 }
-/* Estilos del icono salir */
+
 .o-icon-exit {
   width: 28px;
   height: 28px;
   background-image: url(../../../assets/icons/exit.svg);
 }
-/* Estilos del hover en el icono salir */
+
 .o-icon-exit-red {
   width: 28px;
   height: 28px;
   background-image: url(../../../assets/icons/exitRed.svg);
-}
+} */
 /* Estilos del contenedor del menu */
 .o-container-menu {
   display: flex;
@@ -75,32 +73,6 @@
   position: absolute;
   right: 0;
   margin-right: 12rem;
-  /* margin-top: 1.8rem; */
-  /* width: 100%; */
-  /* margin: 2.2rem; */
-}
-/* Estilos del botón mis listas */
-.o-btn-mis-listas {
-  background-color: transparent;
-  color: #ffffff;
-  border-radius: 6px;
-  font-size: 14px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 22px;
-  padding-right: 22px;
-  border: 0;
-  transition: background-color 0.5s;
-  transition: color 0.5s;
-  outline: none !important;
-}
-.o-btn-mis-listas {
-  outline: 0;
-  outline: none;
-}
-.o-btn-mis-listas:hover {
-  background-color: #aa8e73;
-  color: #ffffff;
 }
 
 @media only screen and (max-width: 767px) {

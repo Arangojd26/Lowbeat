@@ -3,21 +3,60 @@
   justify-content: center;
   align-items: center;
 
-  background-color: #f5f5f5;
+  background: #f5f5f5;
   color: #aa8e73;
   border-radius: 6px;
   font-size: 14px;
   width: 5.5rem;
   height: 2.4rem;
   box-shadow: 5px 5px 9px #c1c1c1, -5px -5px 9px #ffffff;
-  outline: none !important;
+  outline: none;
+  transition: color 0.3s, background 1s;
 }
-
 .o-btn-video:focus {
   outline: 0;
   outline: none;
 }
 .o-btn-video:hover {
-  background-color: #aa8e73;
+  background: linear-gradient(
+    1deg,
+    rgba(98, 73, 133, 1) 0%,
+    rgba(180, 128, 251, 1) 94%
+  );
   color: #ffffff;
+}
+.o-abrir {
+  background: linear-gradient(
+    1deg,
+    rgba(98, 73, 133, 1) 0%,
+    rgba(180, 128, 251, 1) 94%
+  );
+  color: #ffffffec;
+}
+.o-abrir:hover {
+  background: #f5f5f5;
+  color: #aa8e73;
+}
+.o-btn-mis-listas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    1deg,
+    rgba(98, 73, 133, 1) 0%,
+    rgba(180, 128, 251, 1) 94%
+  );
+  color: #ffffffda;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 5.5rem;
+  height: 2.4rem;
+  border: none;
+  /* transition: background 1.5s; */
+  transition: color 1s, background 1s;
+  outline: none;
+}
+.o-btn-mis-listas:hover {
+  background: rgb(174, 116, 255);
+  color: #ffffffda;
 }

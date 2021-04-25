@@ -1,7 +1,7 @@
 import React from "react";
 import { batch, useDispatch, useSelector } from "react-redux";
 import { obtenerVideoListaAccion } from "../../../Redux/MyList/myListDucks";
-import CardVideo from "../../Calm/CardVideo/CardVideo.component";
+import CardVideo from "../../Category/CardVideo/CardVideo.component";
 import LoadingLogin from "../../Login/LoadingLogin/LoadingLogin.component";
 import "./ContainerMyList.css";
 

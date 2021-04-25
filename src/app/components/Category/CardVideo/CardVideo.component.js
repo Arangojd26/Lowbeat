@@ -30,6 +30,7 @@ const CardVideo = (props) => {
           height="100%"
           light={true}
           playIcon={<></>}
+          controls={true}
         />
       </div>
 

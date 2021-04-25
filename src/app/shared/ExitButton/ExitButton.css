@@ -1,0 +1,40 @@
+.o-title-exit {
+  color: #ffffff;
+  font-size: 14px;
+  margin-top: 0.2rem;
+  margin-right: 0.8rem;
+}
+/* Estilos del hover salir */
+.o-title-exit-red {
+  color: #f53939;
+  font-size: 14px;
+  margin-top: 0.2rem;
+  margin-right: 0.8rem;
+}
+.o-link-close {
+  display: none;
+}
+/* Estilos del icono salir */
+.o-icon-exit {
+  width: 28px;
+  height: 28px;
+  background-image: url(../../../assets/icons/exit.svg);
+  margin-right: 1rem;
+}
+/* Estilos del hover en el icono salir */
+.o-icon-exit-red {
+  width: 28px;
+  height: 28px;
+  background-image: url(../../../assets/icons/exitRed.svg);
+  margin-right: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .o-link-close {
+    position: absolute;
+    bottom: 75px;
+    margin-left: 2rem;
+    display: flex;
+    cursor: pointer;
+  }
+}

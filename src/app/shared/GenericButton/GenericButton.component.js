@@ -12,10 +12,13 @@ const GenericButton = ({ clickButton, title }) => {
         className = "o-btn-video o-font-medium ml-2 mr-2";
         break;
       case "Abrir":
-        className = "o-btn-video o-font-medium";
+        className = "o-btn-video o-abrir o-font-medium";
         break;
       case "Cerrar":
         className = "o-btn-close-video o-font-medium";
+        break;
+      case "Mis listas":
+        className = "o-btn-mis-listas o-font-medium";
         break;
 
       default:
