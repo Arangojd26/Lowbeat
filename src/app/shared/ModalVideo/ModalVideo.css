@@ -1,37 +1,76 @@
-.modal-lg.modal-video {
-    min-width: 25rem;
-    height: auto;
+.modal-content {
+  /* border-radius: 25px; */
+  background: transparent;
+  border: none;
 }
-.o-btn-close-video {
-
-    background-color: transparent;
-    color: #AA8E73;
-    border-radius: 6px ;
-    font-family: 'Avenir Next Rounded Pro Medium';
-    font-size: 14px ;
-    padding-top: 10px ;
-    padding-bottom: 10px ;
-    padding-left: 22px ;
-    padding-right: 22px ;
-    border: 0;
-    transition: background-color 0.5s;
-    transition: color 0.5s;
-    outline: none !important;
-    margin-top: 1.1rem;
+.o-modal-body {
+  background-color: #000000f1;
+  height: 90vh;
+  border-radius: 15px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.o-modal-body::-webkit-scrollbar {
+  width: 5px;
+  height: 0;
+  background: #ffffff00;
 }
 
-.o-btn-close-video:focus {
-    
-    outline:0;
-    outline: none;
+.o-modal-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    1deg,
+    rgba(98, 73, 133, 1) 0%,
+    rgba(180, 128, 251, 1) 94%
+  );
+  border-radius: 4px;
+}
+
+.o-modal-body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    1deg,
+    rgb(82, 55, 119) 0%,
+    rgb(170, 109, 255) 94%
+  );
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.o-modal-body::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(
+    1deg,
+    rgb(82, 55, 119) 0%,
+    rgb(170, 109, 255) 94%
+  );
+}
+.o-container-video-modal {
+  width: 100%;
+  height: 20rem;
+  background: transparent;
+}
+
+/* styles of text in modal */
+.o-container-text-modal {
+  width: 70%;
+  /* background: chocolate; */
+}
+.o-text-modal {
+  position: relative;
+  font-family: "Avenir Next Rounded Pro Regular";
+  text-align: center;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.904);
 }
 .o-modal-footer {
-
-    /* background-color: teal; */
-    height: 2rem;
+  /* background-color: teal; */
+  height: 2rem;
 }
-.o-btn-close-video:hover {
 
-    background-color: #AA8E73;
-    color: #ffffff;
+@media only screen and (max-width: 767px) {
+  .o-container-video-modal {
+    height: 18rem;
+  }
+  .o-modal-body::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

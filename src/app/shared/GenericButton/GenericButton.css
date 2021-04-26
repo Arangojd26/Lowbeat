@@ -1,3 +1,4 @@
+/* styles of generic button */
 .o-btn-video {
   display: flex;
   justify-content: center;
@@ -25,6 +26,8 @@
   );
   color: #ffffff;
 }
+
+/* styles of open button */
 .o-abrir {
   background: linear-gradient(
     1deg,
@@ -37,6 +40,8 @@
   background: #f5f5f5;
   color: #aa8e73;
 }
+
+/* styles of my lists button */
 .o-btn-mis-listas {
   display: flex;
   justify-content: center;
@@ -59,4 +64,36 @@
 .o-btn-mis-listas:hover {
   background: rgb(174, 116, 255);
   color: #ffffffda;
+}
+
+/* styles of close button */
+.o-btn-close-video {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    1deg,
+    rgba(98, 73, 133, 1) 0%,
+    rgba(180, 128, 251, 1) 94%
+  );
+  color: #ffffffda;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 4.8rem;
+  height: 2.4rem;
+  border: none;
+  transition: background 1s;
+  outline: none;
+}
+
+.o-btn-close-video:focus {
+  outline: 0;
+  outline: none;
+}
+.o-btn-close-video:hover {
+  background: rgb(174, 116, 255);
 }
