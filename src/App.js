@@ -14,8 +14,9 @@ import Positivismo from "./app/pages/PositivismoPage/Positivismo.page";
 import Descanso from "./app/pages/DescansoPage/Descanso.page";
 import MyList from "./app/pages/ListsPage/MyList.page";
 import SidebarProvider from "./app/context/SidebarProvider";
-import { auth } from "./firebase";
+import { auth } from "./app/consts/firebase";
 import Loading from "./app/pages/LoadingPage/Loading.page";
+// import PlayerProvider from "./app/context/PlayerProvider";
 
 function App() {
   const [firebaseUser, setFirebaseUser] = React.useState(false);
@@ -53,6 +54,7 @@ function App() {
         <Route component={Login} path="/login" exact />
         <SidebarProvider>
           <PrivateRoute component={Home} path="/" exact />
+
           <PrivateRoute component={Calm} path="/calma" exact />
           <PrivateRoute component={Salud} path="/salud" exact />
           <PrivateRoute component={Positivismo} path="/positivismo" exact />

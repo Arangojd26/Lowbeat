@@ -1,4 +1,4 @@
-import { auth, firebase, db } from "../../../firebase";
+import { auth, firebase, db } from "../../consts/firebase";
 
 const dataInicial = {
   loading: false,

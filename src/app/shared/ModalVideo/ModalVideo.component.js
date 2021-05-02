@@ -6,13 +6,22 @@ import Typed from "react-typed";
 import GenericButton from "../GenericButton/GenericButton.component";
 
 const ModalVideo = (props) => {
-  const [modal, setModal] = React.useState(false);
+  const { url, toggle, modal } = props;
+  const [showVideo, setShowVideo] = React.useState(false);
+
   const textModal = "Texto de prueba para generar una frase motivadora.";
-  const toggle = () => setModal(!modal);
+
+  React.useEffect(() => {
+    console.log("unsplash");
+
+    let timer = setTimeout(() => setShowVideo(true), 350);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <>
-      <GenericButton title={props.buttonLabel} clickButton={toggle} />
       <Modal
         isOpen={modal}
         toggle={toggle}
@@ -21,13 +30,17 @@ const ModalVideo = (props) => {
         <div className="modal-content">
           <ModalBody className="o-modal-body">
             <div className="o-container-video-modal">
-              <ReactPlayer
-                url={`https://www.youtube.com/watch?v=${props.url}`}
-                width="100%"
-                height="100%"
-                controls={true}
-                playing={true}
-              />
+              {showVideo && (
+                <div className="o-video-modal">
+                  <ReactPlayer
+                    url={`https://www.youtube.com/watch?v=${url}`}
+                    width="100%"
+                    height="100%"
+                    controls={true}
+                    playing={true}
+                  />
+                </div>
+              )}
             </div>
 
             <div className="d-flex justify-content-center mt-4">

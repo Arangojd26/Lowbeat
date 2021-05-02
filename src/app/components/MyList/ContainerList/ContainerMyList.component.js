@@ -1,5 +1,6 @@
 import React from "react";
 import { batch, useDispatch, useSelector } from "react-redux";
+import PlayerProvider from "../../../context/PlayerProvider";
 import { obtenerVideoListaAccion } from "../../../Redux/MyList/myListDucks";
 import CardVideo from "../../Category/CardVideo/CardVideo.component";
 import LoadingLogin from "../../Login/LoadingLogin/LoadingLogin.component";
@@ -26,12 +27,14 @@ const ContainerMyList = ({ category }) => {
         className="col-md-5 col-lg-4 col-xl-3 offset-md-1 offset-lg-0"
       >
         <div key={item.url} className="mr-2 mb-4">
-          <CardVideo
-            category={category}
-            cardList={true}
-            url={item.url}
-            id={item.id}
-          />
+          <PlayerProvider>
+            <CardVideo
+              category={category}
+              cardList={true}
+              url={item.url}
+              id={item.id}
+            />
+          </PlayerProvider>
         </div>
       </div>
     ));

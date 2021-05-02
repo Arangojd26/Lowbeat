@@ -5,11 +5,16 @@ import CardVideo from "../../Category/CardVideo/CardVideo.component";
 import LoadingLogin from "../../Login/LoadingLogin/LoadingLogin.component";
 import "./SliderCard.css";
 import SampleArrow from "../SampleArrow/SampleArrow.component";
+import PlayerProvider from "../../../context/PlayerProvider";
 
 const SliderCard = (props) => {
   const videosGeneral = useSelector((store) => store.multimedia.urlVideos);
 
   const [loadedVideos, setLoadedVideos] = React.useState(false);
+  // const { setPlaying } = React.useContext(PlayerContext);
+  const [changeSlide, setChangeSlide] = React.useState(false);
+
+  // const [activeSlide, setActiveSlide] = React.useState(0);
 
   React.useEffect(() => {
     let timer = setTimeout(() => setLoadedVideos(true), 2000);
@@ -28,6 +33,8 @@ const SliderCard = (props) => {
       centerPadding: "25px",
       slidesToShow: 1,
       slidesToScroll: 1,
+      // beforeChange: () => setPlaying(false),
+      afterChange: (current) => setChangeSlide(current),
       speed: 500,
       nextArrow: <SampleArrow type={"next"} brakepoint={"desktop"} />,
       prevArrow: <SampleArrow type={"prev"} brakepoint={"desktop"} />,
@@ -57,13 +64,20 @@ const SliderCard = (props) => {
       if (arrayVideos && arrayVideos.length) {
         return arrayVideos.map((item) => (
           <div key={item.url} className="px-2 mb-2">
-            <CardVideo category={props.category} url={item.url} id={item.id} />
+            <PlayerProvider>
+              <CardVideo
+                category={props.category}
+                url={item.url}
+                id={item.id}
+                changeSlide={changeSlide}
+              />
+            </PlayerProvider>
           </div>
         ));
       }
       return [];
     },
-    [props.category]
+    [props.category, changeSlide]
   );
 
   return loadedVideos ? (
