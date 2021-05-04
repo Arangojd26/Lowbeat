@@ -7,14 +7,10 @@ import GenericButton from "../GenericButton/GenericButton.component";
 
 const ModalVideo = (props) => {
   const { url, toggle, modal } = props;
-  const [showVideo, setShowVideo] = React.useState(false);
-
-  const textModal = "Texto de prueba para generar una frase motivadora.";
+  const [showMessage, setShowMessage] = React.useState(false);
 
   React.useEffect(() => {
-    console.log("unsplash");
-
-    let timer = setTimeout(() => setShowVideo(true), 350);
+    let timer = setTimeout(() => setShowMessage(true), 2000);
     return () => {
       clearTimeout(timer);
     };
@@ -30,23 +26,23 @@ const ModalVideo = (props) => {
         <div className="modal-content">
           <ModalBody className="o-modal-body">
             <div className="o-container-video-modal">
-              {showVideo && (
-                <div className="o-video-modal">
-                  <ReactPlayer
-                    url={`https://www.youtube.com/watch?v=${url}`}
-                    width="100%"
-                    height="100%"
-                    controls={true}
-                    playing={true}
-                  />
-                </div>
-              )}
+              <div className="o-video-modal">
+                <ReactPlayer
+                  url={`https://www.youtube.com/watch?v=${url}`}
+                  width="100%"
+                  height="100%"
+                  controls={true}
+                  playing={true}
+                />
+              </div>
             </div>
 
-            <div className="d-flex justify-content-center mt-4">
+            <div className="d-flex justify-content-center mt-5">
               <div className="o-container-text-modal text-light">
                 <div className="o-text-modal">
-                  <Typed strings={[textModal]} typeSpeed={65} />
+                  {showMessage && (
+                    <Typed strings={[props.message]} typeSpeed={58} />
+                  )}
                 </div>
               </div>
             </div>

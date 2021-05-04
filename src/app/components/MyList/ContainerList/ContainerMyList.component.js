@@ -33,6 +33,7 @@ const ContainerMyList = ({ category }) => {
               cardList={true}
               url={item.url}
               id={item.id}
+              message={item.message}
             />
           </PlayerProvider>
         </div>

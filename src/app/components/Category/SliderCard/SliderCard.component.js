@@ -69,6 +69,7 @@ const SliderCard = (props) => {
                 category={props.category}
                 url={item.url}
                 id={item.id}
+                message={item.message}
                 changeSlide={changeSlide}
               />
             </PlayerProvider>

@@ -5,20 +5,24 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import Home from "./app/pages/HomePage/Home.page";
 import Login from "./app/pages/LoginPage/Login.page";
-import "./App.css";
-import Calm from "./app/pages/CalmPage/Calm.page";
-import Salud from "./app/pages/SaludPage/Salud.page";
-import Positivismo from "./app/pages/PositivismoPage/Positivismo.page";
-import Descanso from "./app/pages/DescansoPage/Descanso.page";
-import MyList from "./app/pages/ListsPage/MyList.page";
 import SidebarProvider from "./app/context/SidebarProvider";
 import { auth } from "./app/consts/firebase";
 import Loading from "./app/pages/LoadingPage/Loading.page";
-// import PlayerProvider from "./app/context/PlayerProvider";
+import "./App.css";
 
-function App() {
+const Home = React.lazy(() => import("./app/pages/HomePage/Home.page"));
+const Calm = React.lazy(() => import("./app/pages/CalmPage/Calm.page"));
+const Salud = React.lazy(() => import("./app/pages/SaludPage/Salud.page"));
+const Positivismo = React.lazy(() =>
+  import("./app/pages/PositivismoPage/Positivismo.page")
+);
+const Descanso = React.lazy(() =>
+  import("./app/pages/DescansoPage/Descanso.page")
+);
+const MyList = React.lazy(() => import("./app/pages/ListsPage/MyList.page"));
+
+export default function App() {
   const [firebaseUser, setFirebaseUser] = React.useState(false);
 
   React.useEffect(() => {
@@ -52,20 +56,19 @@ function App() {
     <Router>
       <Switch>
         <Route component={Login} path="/login" exact />
-        <SidebarProvider>
-          <PrivateRoute component={Home} path="/" exact />
-
-          <PrivateRoute component={Calm} path="/calma" exact />
-          <PrivateRoute component={Salud} path="/salud" exact />
-          <PrivateRoute component={Positivismo} path="/positivismo" exact />
-          <PrivateRoute component={Descanso} path="/descanso" exact />
-          <PrivateRoute component={MyList} path="/listas" exact />
-        </SidebarProvider>
+        <React.Suspense fallback={<Loading />}>
+          <SidebarProvider>
+            <PrivateRoute component={Home} path="/" exact />
+            <PrivateRoute component={Calm} path="/calma" exact />
+            <PrivateRoute component={Salud} path="/salud" exact />
+            <PrivateRoute component={Positivismo} path="/positivismo" exact />
+            <PrivateRoute component={Descanso} path="/descanso" exact />
+            <PrivateRoute component={MyList} path="/listas" exact />
+          </SidebarProvider>
+        </React.Suspense>
       </Switch>
     </Router>
   ) : (
     <Loading />
   );
 }
-
-export default App;

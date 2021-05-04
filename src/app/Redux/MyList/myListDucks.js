@@ -72,7 +72,7 @@ export const loadingVideoListaAccion = (estado) => async (dispatch, getState) =>
   });
 };
 
-export const agregarVideoAccion = (urlVideo, category) => async (dispatch) => {
+export const agregarVideoAccion = (urlVideo, category, message) => async (dispatch) => {
   const infoUser = JSON.parse(localStorage.getItem("usuario"));
 
   const data = await db.collection("lista-usuario-videos").get();
@@ -83,10 +83,6 @@ export const agregarVideoAccion = (urlVideo, category) => async (dispatch) => {
   let dataFiltered = res.filter(
     (datosFB) => datosFB.url === urlVideo && infoUser.email === datosFB.email
   );
-  // console.log("category");
-  // console.log(category);
-  // console.log('arreglo comprobar video')
-  // console.log(dataFiltered)
 
   if (dataFiltered.length > 0) {
     dispatch({
@@ -131,6 +127,7 @@ export const agregarVideoAccion = (urlVideo, category) => async (dispatch) => {
         displayName: infoUser.displayName,
         url: urlVideo,
         category: category,
+        message: message
       });
       dispatch({
         type: ADD_VIDEO_SUCCESS,
@@ -148,7 +145,7 @@ export const obtenerVideoListaAccion = (category) => async (dispatch) => {
   const infoUser = JSON.parse(localStorage.getItem("usuario"));
 
   if (localStorage.getItem(category)) {
-    console.log("existe");
+    // console.log("existe");
     dispatch({
       type: GET_VIDEOS_LIST_SUCCESS,
       payload: {
@@ -157,7 +154,7 @@ export const obtenerVideoListaAccion = (category) => async (dispatch) => {
       },
     });
   } else {
-    console.log("no existe");
+    // console.log("no existe");
     try {
       const data = await db.collection("lista-usuario-videos").get();
       const res = data.docs.map((doc) => ({
@@ -169,9 +166,6 @@ export const obtenerVideoListaAccion = (category) => async (dispatch) => {
         (datosFB) =>
           infoUser.email === datosFB.email && category === datosFB.category
       );
-
-      // console.log("data videos");
-      // console.log(dataFiltered);
 
       dispatch({
         type: GET_VIDEOS_LIST_SUCCESS,
@@ -214,8 +208,6 @@ export const eliminarVideoListaAccion = (id, category) => async (
     await db.collection("lista-usuario-videos").doc(id).delete();
     const arrayFiltrado = listVideos.filter((item) => item.id !== id);
 
-    // console.log('data delete filtrada')
-    // console.log(arrayFiltrado)
     dispatch({
       type: DELETE_VIDEO_SUCCESS,
       payload: {
