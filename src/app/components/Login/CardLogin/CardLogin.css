@@ -73,7 +73,7 @@ input.input-login:focus {
 .iconpass {
   position: relative;
   margin-top: 0.2rem;
-  opacity: 90%;
+  opacity: 0.9;
   cursor: pointer;
   z-index: 99999;
 }
