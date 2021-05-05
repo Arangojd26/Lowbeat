@@ -1,23 +1,27 @@
 .btn-google {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    margin: 5px 0;
-    opacity: 0.85;
-    display: inline-block;
-    font-family: 'Avenir Next Rounded Pro Medium';
-    font-size: 14px ;
-    line-height: 20px;
-    background-color: none !important;
-    text-decoration: none !important; /* remove underline from anchors */
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-family: "Avenir Next Rounded Pro Medium";
+  font-size: 14px;
+  line-height: 20px;
+  background-color: none !important;
+  text-decoration: none !important; /* remove underline from anchors */
 }
 .btn-google:hover {
-    opacity: 1;
-    background-color: none !important;
-    color: white;
+  opacity: 1;
+  background-color: none !important;
+  color: white;
 }
 .google {
-    background-color: #0360b6;
-    color: white;
+  background: linear-gradient(
+    1deg,
+    rgba(98, 73, 133, 1) 0%,
+    rgba(180, 128, 251, 1) 94%
+  );
+  color: #ffffffec;
 }

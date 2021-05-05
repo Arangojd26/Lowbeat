@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className="d-flex justify-content-center">
             <div className="o-text-derechos-reservados">
-                ©Lowbeat todos los derechos reservados 2020
+                ©Lowbeat primera versión 2021
             </div>
         </div>
     )

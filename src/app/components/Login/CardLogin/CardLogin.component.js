@@ -124,25 +124,29 @@ const CardLogin = (props) => {
   const login = React.useCallback(async () => {
     dispatch(ingresarUsuarioNormalAccion(email, pass));
     setOpenLoading(true);
-    setEmail("");
-    setPass("");
+    clearForm();
   }, [email, pass, dispatch, setOpenLoading]);
 
   const registrar = React.useCallback(async () => {
     dispatch(registrarUsuarioNormalAccion(nombre, email, pass));
     setModal(true);
     setOpenLoading(true);
+    clearForm();
+  }, [nombre, email, pass, dispatch, setOpenLoading]);
+
+  const clearForm = () => {
+    // setEsRegistro(!esRegistro);
     setNombre("");
     setEmail("");
     setPass("");
     setPassConfirm("");
     setErrorUser(null);
-  }, [nombre, email, pass, dispatch, setOpenLoading]);
+  };
 
   return (
     <>
       <ModalLoginComponent open={modal} />
-      <div className="card o-card-Login" id="Position-Card">
+      <div className="card o-card-login" id="Position-Card">
         <CheckLogin
           esCheck={esCheck}
           es8Caracteres={es8Caracteres}
@@ -210,6 +214,7 @@ const CardLogin = (props) => {
               <SwitchLogin
                 esRegistro={esRegistro}
                 setEsRegistro={setEsRegistro}
+                clearForm={clearForm}
               />
               <ButtonLogin esRegistro={esRegistro} loading={loading} />
               <ButtonGoogle

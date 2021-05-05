@@ -12,7 +12,7 @@ const Login = () => {
     <div className="o-container-login">
       <div className="o-content-login">
         <div className="col-12 col-md-6 col-lg-7 col-xl-8 o-fondo-login">
-          <div className="layer w-100" />
+          {/* <div className="layer w-100" /> */}
           <div className="o-container-logo-login text-center">
             <img className="o-logo-login" src={LogoLowBeat} alt="" />
           </div>

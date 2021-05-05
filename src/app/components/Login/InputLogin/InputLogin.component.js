@@ -80,7 +80,7 @@ const InputLogin = (props) => {
     if (title.includes("Contraseña")) {
       return (
         <span className="input-group-append">
-          <div className="input-group-text bg-transparent">
+          <div className="input-group-text">
             <img
               className={classNameIcon}
               src={conditionIcon ? iconPassShow : iconPassHide}

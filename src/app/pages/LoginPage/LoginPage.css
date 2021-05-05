@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  
 }
 /* Estilos del fondo en la columna izquierda */
 .o-fondo-login {
@@ -17,6 +16,7 @@
   height: 100vh;
   width: 100%;
   padding: 0;
+  /* transform: scaleX(-1); */
 }
 /* Estilos del fondo en el card del login */
 .o-fondo-card {
@@ -40,11 +40,6 @@
   opacity: 0.8;
   z-index: 0;
 }
-
-.o-logo-login {
-  width: 200px;
-  opacity: 1;
-}
 .o-container-logo-login {
   position: absolute;
   /* background-color: turquoise; */
@@ -52,12 +47,19 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   z-index: 2;
+}
+.o-logo-login {
+  width: 100px;
+  opacity: 1;
+  margin-bottom: 1rem;
 }
 .o-container-card-login {
   /* background-color: rgb(240, 206, 12); */
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .o-container-loading-login {
   position: absolute;
@@ -65,9 +67,6 @@
   width: 100%;
   height: 3rem;
   top: 0;
-  /* right: 0; */
-  /* margin-bottom: 2rem; */
-  /* height: 12rem; */
   display: flex;
   justify-content: flex-end;
   align-items: center;

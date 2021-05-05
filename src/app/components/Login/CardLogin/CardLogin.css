@@ -1,18 +1,20 @@
 /* Estilos posición de la tarjeta */
-.o-card-Login {
+.o-card-login {
   border: 0;
-  background-color: #fffffff6;
+  background-color: #fffffff5;
   border-radius: 30px 30px 0px 0px;
 
   -webkit-animation: slideInDown 2.3s 1; /* Safari 4+ */
   -moz-animation: slideInDown 2.3s 1; /* Fx 5+ */
   -o-animation: slideInDown 2.3s 1; /* Opera 12+ */
   animation: slideInDown 2.3s 1; /* IE 10+, Fx 29+ */
+  max-width: 35rem;
 }
 .container-form {
   width: 20rem;
   margin-left: auto;
   margin-right: auto;
+  /* background-color: #f52525f5; */
 }
 .input-login {
   padding: 0rem;
@@ -46,7 +48,7 @@ input.input-login:focus {
   color: #707070;
   opacity: 0.64;
   font-size: 14px;
-  z-index: 0;
+  z-index: 1;
   transition: transform 150ms ease-out, font-size 150ms ease-out;
   cursor: text;
 }
@@ -66,17 +68,18 @@ input.input-login:focus {
   background: transparent;
   opacity: 1;
   margin-left: -2rem;
-  
+  z-index: 20;
 }
 .iconpass {
-  margin-top: 0.4rem;
+  position: relative;
+  margin-top: 0.2rem;
   opacity: 90%;
   cursor: pointer;
-  z-index: 20;
+  z-index: 99999;
 }
 
 @media (max-width: 768px) {
-  .o-card-Login {
+  .o-card-login {
     /* bottom: 0; */
     /* background-color: tomato; */
     width: 100%;
